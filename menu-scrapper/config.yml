@@ -1,0 +1,47 @@
+---
+mensas:
+  - id: "mensa-academica"
+    name: "Mensa Academica"
+    urls:
+      de: "https://www.studierendenwerk-aachen.de/speiseplaene/academica-w.html"
+      en: "https://www.studierendenwerk-aachen.de/speiseplaene/academica-w-en.html"
+  - id: "mensa-ahorn"
+    name: "Mensa Ahornstraße"
+    urls:
+      de: "https://www.studierendenwerk-aachen.de/speiseplaene/ahornstrasse-w.html"
+      en: "https://www.studierendenwerk-aachen.de/speiseplaene/ahornstrasse-w-en.html"
+  - id: "bistro-templergraben"
+    name: "Bistro Templergraben"
+    urls:
+      de: "https://www.studierendenwerk-aachen.de/speiseplaene/templergraben-w.html"
+      en: "https://www.studierendenwerk-aachen.de/speiseplaene/templergraben-w-en.html"
+  - id: "mensa-bayernallee"
+    name: "Mensa Bayernallee"
+    urls:
+      de: "https://www.studierendenwerk-aachen.de/speiseplaene/bayernallee-w.html"
+      en: "https://www.studierendenwerk-aachen.de/speiseplaene/bayernallee-w-en.html"
+  - id: "mensa-eupener-strasse"
+    name: "Mensa Eupener Straße"
+    urls:
+      de: "https://www.studierendenwerk-aachen.de/speiseplaene/eupenerstrasse-w.html"
+      en: "https://www.studierendenwerk-aachen.de/speiseplaene/eupenerstrasse-w-en.html"
+  - id: "mensa-kmac"
+    name: "Mensa KMAC"
+    urls:
+      de: "https://www.studierendenwerk-aachen.de/speiseplaene/kmac-w.html"
+      en: "https://www.studierendenwerk-aachen.de/speiseplaene/kmac-w-en.html"
+  - id: "mensa-südpark"
+    name: "Mensa Südpark"
+    urls:
+      de: "https://www.studierendenwerk-aachen.de/speiseplaene/suedpark-w.html"
+      en: "https://www.studierendenwerk-aachen.de/speiseplaene/suedpark-w-en.html"
+  - id: "mensa-vita"
+    name: "Mensa Vita"
+    urls:
+      de: "https://www.studierendenwerk-aachen.de/speiseplaene/vita-w.html"
+      en: "https://www.studierendenwerk-aachen.de/speiseplaene/vita-w-en.html"
+  - id: "mensa-juelich"
+    name: "Mensa Jülich"
+    urls:
+      de: "https://www.studierendenwerk-aachen.de/speiseplaene/juelich-w.html"
+      en: "https://www.studierendenwerk-aachen.de/speiseplaene/juelich-w-en.html"
