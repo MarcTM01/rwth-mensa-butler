@@ -3,7 +3,7 @@ package scrapper
 import (
 	"errors"
 	"fmt"
-	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper/model"
+	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/model"
 	"github.com/PuerkitoBio/goquery"
 	"strings"
 )

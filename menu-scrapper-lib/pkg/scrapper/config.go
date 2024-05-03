@@ -1,7 +1,7 @@
 package scrapper
 
 import (
-	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper/model"
+	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/model"
 	"github.com/spf13/viper"
 )
 

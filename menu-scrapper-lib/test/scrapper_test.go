@@ -1,7 +1,7 @@
 package test
 
 import (
-	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper/scrapper"
+	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/scrapper"
 	"github.com/PuerkitoBio/goquery"
 	"os"
 	"strings"
