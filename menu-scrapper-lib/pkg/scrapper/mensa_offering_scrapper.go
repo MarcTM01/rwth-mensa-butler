@@ -7,14 +7,8 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-type MenuOfferingConfiguration struct {
-	MenuLanguageCode string
-	MensaId          string
-	MenuUrl          string
-}
-
-func RetrieveCurrentMensaOfferings(config MenuOfferingConfiguration) (*model.MensaOfferings, error) {
-	doc, err := FetchHtmlToGoQuery(config.MenuUrl)
+func RetrieveCurrentMensaOfferings(menuUrl string) (*model.MensaOfferings, error) {
+	doc, err := FetchHtmlToGoQuery(menuUrl)
 	if err != nil {
 		return nil, err
 	}

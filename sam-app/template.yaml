@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  SAM APP for the rwth-mensa-buttler.
+  Used for configuring the scrapping lambda function and the dynamoDB table.
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 5
+    MemorySize: 128
+
+    # You can add LoggingConfig parameters such as the Logformat, Log Group, and SystemLogLevel or ApplicationLogLevel. Learn more here https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-loggingconfig.
+    LoggingConfig:
+      LogFormat: JSON
+Resources:
+  ScrapMensaDataFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      PackageType: Image
+      Architectures:
+      - x86_64
+      Events:
+        HourlyScan:
+          Type: Schedule
+          Properties:
+            Schedule: rate(1 hour)
+      Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
+        Variables:
+          PARAM1: VALUE
+    Metadata:
+      DockerTag: provided.al2-v1
+      DockerContext: ../
+      Dockerfile: menu-scrapper-lambda/Dockerfile
+
+Outputs:
+  ScrapMensaDataFunction:
+    Description: A Lambda ARN for the regular mensa scraping function
+    Value: !GetAtt ScrapMensaDataFunction.Arn
+  HelloWorldFunctionIamRole:
+    Description: Implicit IAM Role created for mensa scraping function
+    Value: !GetAtt ScrapMensaDataFunctionRole.Arn
