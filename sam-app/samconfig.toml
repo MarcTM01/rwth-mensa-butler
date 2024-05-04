@@ -17,6 +17,11 @@ capabilities = "CAPABILITY_IAM"
 confirm_changeset = true
 resolve_s3 = true
 resolve_image_repos = true
+stack_name = "mensa-buttler"
+s3_prefix = "mensa-buttler"
+region = "eu-central-1"
+profile = "mensa-buttler-cd"
+parameter_overrides = "TABLENAME=\"RwthMensaOfferings\" ENVIRONMENTNAME=\"prod\""
 
 [default.package.parameters]
 resolve_s3 = true

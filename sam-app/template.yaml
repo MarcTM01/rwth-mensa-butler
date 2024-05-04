@@ -6,16 +6,51 @@ Description: >
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
-    Timeout: 5
+    Timeout: 30
     MemorySize: 128
 
     # You can add LoggingConfig parameters such as the Logformat, Log Group, and SystemLogLevel or ApplicationLogLevel. Learn more here https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-loggingconfig.
     LoggingConfig:
       LogFormat: JSON
+
+
+Parameters:
+    TABLENAME:
+        Type: String
+        Description: DynamoDB Table Name
+        Default: MensaOfferings
+    ENVIRONMENTNAME:
+        Type: String
+        Description: Environment Name (prod, localdev)
+        Default: prod
+
 Resources:
+  MensaOfferingsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Ref TABLENAME
+      AttributeDefinitions:
+        - AttributeName: MensaIdLanguageKeyDate
+          AttributeType: S
+      KeySchema:
+        - AttributeName: MensaIdLanguageKeyDate
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+
   ScrapMensaDataFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
+      Policies:
+        - PolicyName: DynamoDBAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:PutItem
+                Resource: !GetAtt MensaOfferingsTable.Arn
       PackageType: Image
       Architectures:
       - x86_64
@@ -23,10 +58,11 @@ Resources:
         HourlyScan:
           Type: Schedule
           Properties:
-            Schedule: rate(1 hour)
+            Schedule: rate(4 hour)
       Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
         Variables:
-          PARAM1: VALUE
+          TABLE_NAME: !Ref TABLENAME
+          ENVIRONMENT_NAME: !Ref ENVIRONMENTNAME
     Metadata:
       DockerTag: provided.al2-v1
       DockerContext: ../
@@ -36,6 +72,4 @@ Outputs:
   ScrapMensaDataFunction:
     Description: A Lambda ARN for the regular mensa scraping function
     Value: !GetAtt ScrapMensaDataFunction.Arn
-  HelloWorldFunctionIamRole:
-    Description: Implicit IAM Role created for mensa scraping function
-    Value: !GetAtt ScrapMensaDataFunctionRole.Arn
+
