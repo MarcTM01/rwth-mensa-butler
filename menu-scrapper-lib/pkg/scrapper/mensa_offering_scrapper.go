@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/model"
+	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/utils"
 	"github.com/PuerkitoBio/goquery"
 )
 
@@ -38,7 +39,7 @@ func ScrapMensaMenuOfferings(doc *goquery.Document) (*model.MensaOfferings, erro
 	}
 
 	mensaLayout := model.MensaOfferings{
-		MensaName:  mensaName,
+		MensaName:  utils.RemoveRedundantWhitespace(mensaName),
 		DailyMenus: dayNodes,
 	}
 

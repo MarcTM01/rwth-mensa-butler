@@ -63,4 +63,17 @@ func TestScrapMensaMenuOfferings(t *testing.T) {
 	if _, hasBeef := sampleMenu.NutritionFlags["beef"]; len(sampleMenu.NutritionFlags) != 1 || !hasBeef {
 		t.Error("Expected nutrition flags to be ['beef'], got", sampleMenu.NutritionFlags)
 	}
+
+	if len(sampleDay.Extras) != 2 {
+		t.Error("Expected 2 extras, got", len(sampleDay.Extras))
+	}
+
+	sampleExtra := sampleDay.Extras[0]
+	if sampleExtra.Name != "Main side-dish" {
+		t.Error("Expected extra name to be 'Main side-dish', got", sampleExtra.Name)
+	}
+
+	if sampleExtra.Description != "Garlic chili potatoes or Wheat berries" {
+		t.Error("Expected extra description to be 'Garlic chili potatoes or Wheat berries', got", sampleExtra.Description)
+	}
 }

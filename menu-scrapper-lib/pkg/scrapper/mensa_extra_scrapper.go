@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/model"
+	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/utils"
 	"github.com/PuerkitoBio/goquery"
 )
 
@@ -19,13 +20,19 @@ func ScrapMensaExtras(rootNode *goquery.Selection) (*model.MensaMenuExtra, error
 		return nil, errors.New(fmt.Sprintf("Expected 1 description container node, got %d", descriptionContainer.Length()))
 	}
 
-	description := descriptionContainer.
+	descriptionContainerModified := descriptionContainer.
 		ChildrenFiltered("sup").Remove().End().
-		ChildrenFiltered("span.menue-nutr").Remove().End().
-		Text()
+		ChildrenFiltered("span.menue-nutr").Remove().End()
+
+	separator := descriptionContainerModified.Find("span.seperator")
+	if separator.Length() == 1 {
+		separator.SetText(
+			fmt.Sprintf(" %s ", separator.Text()),
+		)
+	}
 
 	return &model.MensaMenuExtra{
-		Name:        name,
-		Description: description,
+		Name:        utils.RemoveRedundantWhitespace(name),
+		Description: utils.RemoveRedundantWhitespace(descriptionContainerModified.Text()),
 	}, nil
 }

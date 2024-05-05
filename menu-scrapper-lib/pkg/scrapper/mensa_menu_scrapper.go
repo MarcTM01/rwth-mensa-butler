@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/model"
+	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/utils"
 	"github.com/PuerkitoBio/goquery"
 	"strings"
 )
@@ -47,7 +48,7 @@ func retrievePrice(rootNode *goquery.Selection) (*string, error) {
 	case priceContainer.Length() == 0:
 		return nil, nil
 	case priceContainer.Length() == 1:
-		localPrice := priceContainer.Text()
+		localPrice := utils.RemoveRedundantWhitespace(priceContainer.Text())
 		return &localPrice, nil
 	default:
 		return nil, errors.New(fmt.Sprintf("Expected at most 1 price container node, got %d", priceContainer.Length()))
@@ -64,7 +65,7 @@ func retrieveConents(rootNode *goquery.Selection) ([]string, error) {
 	descriptionContents := strings.Split(descriptionString, "|")
 
 	for i := range descriptionContents {
-		descriptionContents[i] = strings.TrimSpace(descriptionContents[i])
+		descriptionContents[i] = utils.RemoveRedundantWhitespace(descriptionContents[i])
 	}
 
 	return descriptionContents, nil
@@ -93,7 +94,7 @@ func ScrapMensaMenu(rootNode *goquery.Selection) (*model.MensaMenu, error) {
 	}
 
 	return &model.MensaMenu{
-		Name:           name,
+		Name:           utils.RemoveRedundantWhitespace(name),
 		Contents:       descriptionContents,
 		Price:          price,
 		NutritionFlags: nutritionFlags,
