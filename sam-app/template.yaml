@@ -43,14 +43,11 @@ Resources:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
       Policies:
-        - PolicyName: DynamoDBAccess
-          PolicyDocument:
-            Version: '2012-10-17'
-            Statement:
-              - Effect: Allow
-                Action:
-                  - dynamodb:PutItem
-                Resource: !GetAtt MensaOfferingsTable.Arn
+        - Statement:
+          - Effect: Allow
+            Action:
+              - dynamodb:PutItem
+            Resource: !GetAtt MensaOfferingsTable.Arn
       PackageType: Image
       Architectures:
       - x86_64
@@ -58,7 +55,7 @@ Resources:
         HourlyScan:
           Type: Schedule
           Properties:
-            Schedule: rate(4 hour)
+            Schedule: rate(4 hours)
       Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
         Variables:
           TABLE_NAME: !Ref TABLENAME
