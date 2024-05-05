@@ -68,7 +68,7 @@ func retrieveAndStoreOfferingsForMensaUrl(mensaId string, languageKey string, ur
 	if err != nil {
 		response.Success = false
 		response.Messages = append(response.Messages, fmt.Sprintf("[%s-%s] Could not scrap offerings from website", mensaId, languageKey))
-		log.Printf("[%s-%s] Could not scrap offerings from website: %v", mensaId, languageKey, err)
+		log.Printf("[%s-%s] [ERROR] Could not scrap offerings from website: %v", mensaId, languageKey, err)
 		return response
 	}
 
@@ -78,14 +78,14 @@ func retrieveAndStoreOfferingsForMensaUrl(mensaId string, languageKey string, ur
 		if err != nil {
 			response.Success = false
 			response.Messages = append(response.Messages, fmt.Sprintf("[%s-%s] Could not store scrapped offerings to database for date %s", mensaId, languageKey, dailyOfferings.Date))
-			log.Printf("[%s-%s] Could not store scrapped offerings to database for date %s: %v", mensaId, languageKey, dailyOfferings.Date, err)
+			log.Printf("[%s-%s] [ERROR] Could not store scrapped offerings to database for date %s: %v", mensaId, languageKey, dailyOfferings.Date, err)
 		} else {
 			successCounter++
 		}
 	}
 
 	response.Messages = append(response.Messages, fmt.Sprintf("[%s-%s] Successfully stored %d days of offerings", mensaId, languageKey, successCounter))
-	log.Printf("[%s-%s] Successfully stored %d days of offerings", mensaId, languageKey, successCounter)
+	log.Printf("[%s-%s] [INFO] Successfully stored %d days of offerings", mensaId, languageKey, successCounter)
 	return response
 }
 
