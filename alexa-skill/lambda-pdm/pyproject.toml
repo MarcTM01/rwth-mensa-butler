@@ -1,0 +1,18 @@
+[project]
+name = "rwth-mensa-buttler-alexa-skill"
+version = "0.1.0"
+description = "An Alexa-Hosted skill for the mensa of RWTH-Aachen"
+authors = [
+    {name = "MarcTM01", email = "108792843+MarcTM01@users.noreply.github.com"},
+]
+dependencies = [
+    "boto3==1.28.78",
+    "ask-sdk-core==1.19.0",
+]
+requires-python = "==3.8.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
