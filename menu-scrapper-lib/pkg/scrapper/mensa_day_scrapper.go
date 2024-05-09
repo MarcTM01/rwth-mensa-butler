@@ -1,7 +1,6 @@
 package scrapper
 
 import (
-	"errors"
 	"fmt"
 	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/model"
 	"github.com/PuerkitoBio/goquery"
@@ -36,7 +35,7 @@ func ScrapMensaDayOfferings(rootNode *goquery.Selection) (*model.MensaDayMenus, 
 func getExtrasFromRootNode(rootNode *goquery.Selection) ([]model.MensaMenuExtra, error) {
 	extraMenuContainerNode := rootNode.Find("div > table.extras > tbody")
 	if extraMenuContainerNode.Length() != 1 {
-		return nil, errors.New(fmt.Sprintf("Expected 1 extra menu container node, got %d", extraMenuContainerNode.Length()))
+		return nil, fmt.Errorf("expected 1 extra menu container node, got %d", extraMenuContainerNode.Length())
 	}
 	childrenContainers := extraMenuContainerNode.Children()
 	childrenNodes := make([]model.MensaMenuExtra, childrenContainers.Length())
@@ -53,7 +52,7 @@ func getExtrasFromRootNode(rootNode *goquery.Selection) ([]model.MensaMenuExtra,
 func getMenusFromRootNode(rootNode *goquery.Selection) ([]model.MensaMenu, error) {
 	menuContainerNode := rootNode.Find("div > table.menues > tbody")
 	if menuContainerNode.Length() != 1 {
-		return nil, errors.New(fmt.Sprintf("Expected 1 menu container node, got %d", menuContainerNode.Length()))
+		return nil, fmt.Errorf("expected 1 menu container node, got %d", menuContainerNode.Length())
 	}
 	childrenContainers := menuContainerNode.Children()
 	childrenNodes := make([]model.MensaMenu, childrenContainers.Length())
@@ -75,19 +74,19 @@ const dateLength = 10
 func getDateFromRootNode(rootNode *goquery.Selection) (string, error) {
 	candidateNode := rootNode.Find("h3 a")
 	if candidateNode.Length() != 1 {
-		return "", errors.New(fmt.Sprintf("Expected 1 heading node, got %d", candidateNode.Length()))
+		return "", fmt.Errorf("expected 1 heading node, got %d", candidateNode.Length())
 	}
 
 	headingText := candidateNode.Text()
 	if len(headingText) < dateLength {
-		return "", errors.New(fmt.Sprintf("Expected heading text to be at least %d characters long, got %d", dateLength, len(headingText)))
+		return "", fmt.Errorf("expected heading text to be at least %d characters long, got %d", dateLength, len(headingText))
 	}
 
 	expectedDateSubstring := headingText[len(headingText)-dateLength:]
 	regex := regexp.MustCompile(dateRegex)
 
 	if !regex.MatchString(expectedDateSubstring) {
-		return "", errors.New(fmt.Sprintf("Expected date to be of format DD.MM.YYYY god %s", expectedDateSubstring))
+		return "", fmt.Errorf("expected date to be of format DD.MM.YYYY god %s", expectedDateSubstring)
 	}
 
 	//        0123456789

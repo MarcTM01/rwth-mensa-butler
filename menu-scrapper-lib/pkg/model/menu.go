@@ -25,9 +25,9 @@ type MensaMenuExtra struct {
 
 const (
 	FlagVegetarian string = "vegetarian"
-	FlagVegan             = "vegan"
-	FlagPork              = "pork"
-	FlagBeef              = "beef"
-	FlagFish              = "fish"
-	FlagChicken           = "chicken"
+	FlagVegan      string = "vegan"
+	FlagPork       string = "pork"
+	FlagBeef       string = "beef"
+	FlagFish       string = "fish"
+	FlagChicken    string = "chicken"
 )

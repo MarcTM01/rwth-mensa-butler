@@ -35,7 +35,7 @@ func retrieveNutritionFlags(rootNode *goquery.Selection) (map[string]struct{}, e
 		case imageSrc == "resources/images/inhalt/Geflügel.png":
 			nutritionFlags[model.FlagChicken] = struct{}{}
 		default:
-			return nil, errors.New(fmt.Sprintf("Unknown nutrition flag image src: %s", imageSrc))
+			return nil, fmt.Errorf("unknown nutrition flag image src: %s", imageSrc)
 		}
 	}
 
@@ -51,14 +51,14 @@ func retrievePrice(rootNode *goquery.Selection) (*string, error) {
 		localPrice := utils.RemoveRedundantWhitespace(priceContainer.Text())
 		return &localPrice, nil
 	default:
-		return nil, errors.New(fmt.Sprintf("Expected at most 1 price container node, got %d", priceContainer.Length()))
+		return nil, fmt.Errorf("expected at most 1 price container node, got %d", priceContainer.Length())
 	}
 }
 
 func retrieveConents(rootNode *goquery.Selection) ([]string, error) {
 	descriptionContainer := rootNode.Find("span.menue-desc > span.expand-nutr")
 	if descriptionContainer.Length() != 1 {
-		return nil, errors.New(fmt.Sprintf("Expected 1 description container node, got %d", descriptionContainer.Length()))
+		return nil, fmt.Errorf("expected 1 description container node, got %d", descriptionContainer.Length())
 	}
 
 	descriptionString := descriptionContainer.Clone().Children().Remove().End().Text()
@@ -74,7 +74,7 @@ func retrieveConents(rootNode *goquery.Selection) ([]string, error) {
 func ScrapMensaMenu(rootNode *goquery.Selection) (*model.MensaMenu, error) {
 	categoryContainer := rootNode.Find("span.menue-category")
 	if categoryContainer.Length() != 1 {
-		return nil, errors.New(fmt.Sprintf("Expected 1 category container node, got %d", categoryContainer.Length()))
+		return nil, fmt.Errorf("expected 1 category container node, got %d", categoryContainer.Length())
 	}
 	name := categoryContainer.Text()
 

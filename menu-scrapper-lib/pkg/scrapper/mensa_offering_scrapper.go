@@ -1,7 +1,6 @@
 package scrapper
 
 import (
-	"errors"
 	"fmt"
 	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/model"
 	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/utils"
@@ -25,7 +24,7 @@ func RetrieveCurrentMensaOfferings(menuUrl string) (*model.MensaOfferings, error
 func ScrapMensaMenuOfferings(doc *goquery.Document) (*model.MensaOfferings, error) {
 	rootNode := doc.Find("div.col-wrap")
 	if rootNode.Length() != 1 {
-		return nil, errors.New(fmt.Sprintf("Expected 1 root node, got %d", rootNode.Length()))
+		return nil, fmt.Errorf("expected 1 root node, got %d", rootNode.Length())
 	}
 
 	mensaName, err := getMensaNameFromRootNode(rootNode)
@@ -49,7 +48,7 @@ func ScrapMensaMenuOfferings(doc *goquery.Document) (*model.MensaOfferings, erro
 func getMensaNameFromRootNode(rootNode *goquery.Selection) (string, error) {
 	candidateNode := rootNode.Find("h2 > b")
 	if candidateNode.Length() != 1 {
-		return "", errors.New(fmt.Sprintf("Expected 1 mensa name node, got %d", candidateNode.Length()))
+		return "", fmt.Errorf("expected 1 mensa name node, got %d", candidateNode.Length())
 	}
 	return candidateNode.Text(), nil
 }
