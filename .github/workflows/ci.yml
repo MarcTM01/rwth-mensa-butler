@@ -27,3 +27,26 @@ jobs:
         with:
           working-directory: ./menu-scrapper-lib
           version: v1.58.1
+  menu-scrapper-lambda-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21.9'
+
+      - name: Install dependencies
+        working-directory: ./menu-scrapper-lambda
+        run: go get -d ./...
+
+      - name: Build
+        working-directory: ./menu-scrapper-lambda
+        run: go build ./bin/main.go
+
+      - name: Lint code
+        if: '!cancelled()'
+        uses: golangci/golangci-lint-action@v6
+        with:
+          working-directory: ./menu-scrapper-lambda
+          version: v1.58.1
