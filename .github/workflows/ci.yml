@@ -25,4 +25,5 @@ jobs:
         if: '!cancelled()'
         uses: golangci/golangci-lint-action@v6
         with:
+          working-directory: ./menu-scrapper-lib
           version: v1.58.1
