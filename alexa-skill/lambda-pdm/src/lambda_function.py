@@ -14,6 +14,7 @@ from handler.help_intent_handler import (
 from handler.launch_request_handler import (
     LaunchRequestHandler,
 )
+from handler.localization_interceptor import LocalizationInterceptor
 from handler.session_ended_request_handler import (
     SessionEndedRequestHandler,
 )
@@ -21,11 +22,8 @@ from handler.session_ended_request_handler import (
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-
-
-
-
 sb = SkillBuilder()
+sb.add_global_request_interceptor(LocalizationInterceptor())
 
 sb.add_request_handler(LaunchRequestHandler())
 sb.add_request_handler(GetMensaOfferingsIntentHandler())

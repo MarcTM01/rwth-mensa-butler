@@ -15,11 +15,8 @@ class GetMensaOfferingsIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input: HandlerInput) -> Response:
         mensa_name = request_util.get_slot(handler_input, "mensa")
-        speak_output = f"Hello World! Let me check what's on the menu in {mensa_name.value}"
-
-        return (
-            handler_input.response_builder
-            .speak(speak_output)
-            # .ask("add a reprompt if you want to keep the session open for the user to respond")
-            .response
+        speak_output = (
+            f"Hello World! Let me check what's on the menu in {mensa_name} for you."
         )
+
+        return handler_input.response_builder.speak(speak_output).response

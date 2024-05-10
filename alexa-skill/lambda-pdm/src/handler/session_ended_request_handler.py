@@ -8,9 +8,10 @@ class SessionEndedRequestHandler(AbstractRequestHandler):
     """Handler for Session End."""
 
     def can_handle(self, handler_input: HandlerInput) -> bool:
+        """Overwritten."""
         return ask_utils.is_request_type("SessionEndedRequest")(handler_input)
 
     def handle(self, handler_input: HandlerInput) -> Response:
+        """Overwritten."""
         # Any cleanup logic goes here.
-
         return handler_input.response_builder.response

@@ -1,0 +1,63 @@
+# English (United States) translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-05-10 10:28+0200\n"
+"PO-Revision-Date: 2024-05-10 10:30+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en_US\n"
+"Language-Team: en_US <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.15.0\n"
+
+#: src/handler/launch_request_handler.py:20
+msgid "LAUNCH_MESSAGE"
+msgstr "Welcome to this skill for the mensa of RWTH-Aachen University. You can ask me about the cafeteria menu."
+
+#: src/handler/cancel_intent_handler.py:19
+msgid "CANCEL_MESSAGE"
+msgstr "Goodbye!"
+
+#: src/handler/catch_all_exception_handler.py:26
+msgid "ERROR_MESSAGE"
+msgstr "Sorry, I had trouble doing what you asked. Please try again."
+
+#: src/handler/help_intent_handler.py:22
+msgid "HELP_MESSAGE"
+msgstr "You can ask me about the cafeteria menu at any of RWTH-Aachen universities mensas"
+
+# Mensa Names
+msgid "mensa-academica"
+msgstr "Mensa Academica"
+
+msgid "mensa-ahorn"
+msgstr "Mensa Ahornstraße"
+
+msgid "bistro-templergraben"
+msgstr "Bistro Templergraben"
+
+msgid "mensa-bayernallee"
+msgstr "Mensa Bayernallee"
+
+msgid "mensa-eupener-strasse"
+msgstr "Mensa Eupener Straße"
+
+msgid "mensa-kmac"
+msgstr "Mensa KMAC"
+
+msgid "mensa-südpark"
+msgstr "Mensa Südpark"
+
+msgid "mensa-vita"
+msgstr "Mensa Vita"
+
+msgid "mensa-juelich"
+msgstr "Mensa Jülich"

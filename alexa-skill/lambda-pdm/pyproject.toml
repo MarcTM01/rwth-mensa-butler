@@ -16,7 +16,7 @@ license = {text = "MIT"}
 [tool.pdm.scripts]
 lint = "ruff check --fix ."
 format = "ruff format ."
-typecheck = "mypy src/"
+typecheck = "mypy ./src/"
 
 [tool.pdm.dev-dependencies]
 lint = [
@@ -24,6 +24,9 @@ lint = [
 ]
 typecheck = [
     "mypy>=1.10.0",
+]
+i18n = [
+    "babel>=2.15.0",
 ]
 
 [tool.ruff.lint]

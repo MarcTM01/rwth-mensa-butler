@@ -24,6 +24,10 @@ rsync -a -v --delete-after --exclude '*/__pycache__' lambda-pdm/src/ "$TARGET_DI
 echo "Updating requirements.txt"
 (cd lambda-pdm && pdm export --prod --format requirements --no-hashes) > "$TARGET_DIRECTORY/lambda/requirements.txt"
 
+echo "Compiling language files"
+(cd "$TARGET_DIRECTORY/lambda" && pybabel compile -i locales/en-US/LC_MESSAGES/skill.po -o locales/en-US/LC_MESSAGES/skill.mo &&
+                                  pybabel compile -i locales/de-DE/LC_MESSAGES/skill.po -o locales/de-DE/LC_MESSAGES/skill.mo)
+
 if [ "$#" -eq 2 ] && [ "$2" == "commit" ]; then
   echo "Commiting changes"
   (cd "$TARGET_DIRECTORY" && git add lambda && git commit -m "Update lambda source code and requirements.txt" && git push)
