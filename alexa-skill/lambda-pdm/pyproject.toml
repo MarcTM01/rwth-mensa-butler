@@ -13,6 +13,36 @@ requires-python = "==3.8.*"
 readme = "README.md"
 license = {text = "MIT"}
 
+[tool.pdm.scripts]
+lint = "ruff check --fix ."
+format = "ruff format ."
+typecheck = "mypy src/"
+
+[tool.pdm.dev-dependencies]
+lint = [
+    "ruff>=0.4.4",
+]
+typecheck = [
+    "mypy>=1.10.0",
+]
+
+[tool.ruff.lint]
+select = [
+    "D",
+    "D401",
+    "E4",
+    "E7",
+    "E9",
+    "F",
+    "I"
+]
+
+ignore = [
+    "D100", "D104"
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"
 
 [tool.pdm]
 distribution = false
