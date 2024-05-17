@@ -23,6 +23,9 @@ Parameters:
         Type: String
         Description: Environment Name (prod, localdev)
         Default: prod
+    ALEXASKILLARN:
+        Type: String
+        Description: ARN of the Alexa Skill
 
 Resources:
   MensaOfferingsTable:
@@ -38,6 +41,26 @@ Resources:
       ProvisionedThroughput:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5
+
+  AlexaMensaOfferingsTableAccessRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Ref ALEXASKILLARN
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: AlexaMensaOfferingsTableAccessPolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:GetItem
+                Resource: !GetAtt MensaOfferingsTable.Arn
 
   ScrapMensaDataFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -69,4 +92,7 @@ Outputs:
   ScrapMensaDataFunction:
     Description: A Lambda ARN for the regular mensa scraping function
     Value: !GetAtt ScrapMensaDataFunction.Arn
+  MensaOfferingsTable:
+    Description: A Table ARN for the mensa offerings
+    Value: !GetAtt MensaOfferingsTable.Arn
 

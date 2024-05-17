@@ -15,20 +15,126 @@
           "samples": []
         },
         {
-          "slots": [],
-          "name": "HelloWorldIntent",
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "slots": [
+            {
+              "name": "date",
+              "type": "AMAZON.DATE"
+            },
+            {
+              "name": "mensa",
+              "type": "MensaName"
+            }
+          ],
+          "name": "GetMensaOfferingsIntent",
           "samples": [
-            "hello",
-            "how are you",
-            "say hi world",
-            "say hi",
-            "hi",
-            "say hello world",
-            "say hello"
+            "what\u0027s on the menu at {mensa} {date}",
+            "what culinary delights await at {mensa} for {date}",
+            "about {mensa} s menu for {date}",
+            "about the dishes available at {mensa} for {date}",
+            "for the menu lineup at {mensa} for {date}",
+            "what\u0027s cooking at {mensa} on {date}",
+            "what they\u0027re serving at {mensa} {date}",
+            "could you inquire about the menu at {mensa} for {date}",
+            "for {date} offerings at {mensa}",
+            "what\u0027s on the menu at {mensa} for {date} "
           ]
         }
       ],
-      "types": [],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "synonyms": [
+                  "Mensa Jülich"
+                ],
+                "value": "Jülich"
+              },
+              "id": "mensa-juelich"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Mensa Vita"
+                ],
+                "value": "Vita"
+              },
+              "id": "mensa-vita"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Mensa Südpark"
+                ],
+                "value": "Südpark"
+              },
+              "id": "mensa-südpark"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Mensa KMAC"
+                ],
+                "value": "KMAC"
+              },
+              "id": "mensa-kmac"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Mensa Eupener Straße"
+                ],
+                "value": "Eupener Straße"
+              },
+              "id": "mensa-eupener-strasse"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Mensa Bayernallee"
+                ],
+                "value": "Bayernallee"
+              },
+              "id": "mensa-bayernallee"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Mensa Templergraben",
+                  "Bistro Templergraben"
+                ],
+                "value": "Templergraben"
+              },
+              "id": "bistro-templergraben"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Computer Science Mensa",
+                  "CS Mensa",
+                  "Mensa Ahornstraße"
+                ],
+                "value": "Ahornstraße"
+              },
+              "id": "mensa-ahorn"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Mensa Academica"
+                ],
+                "value": "Academica"
+              },
+              "id": "mensa-academica"
+            }
+          ],
+          "name": "MensaName"
+        }
+      ],
       "invocationName": "r w t h mensa"
     }
   }
