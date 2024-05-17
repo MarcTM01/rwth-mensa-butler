@@ -1,0 +1,139 @@
+{
+  "MensaId": "mensa-academica",
+  "Date": "2024-05-15",
+  "Menus": [
+    {
+      "NutritionFlags": {
+        "fish": {}
+      },
+      "Contents": [
+        "Potato creme soup",
+        "Smoked salmon",
+        "Bread roll"
+      ],
+      "Price": "2,00 €",
+      "Name": "Stew"
+    },
+    {
+      "NutritionFlags": {
+        "vegetarian": {}
+      },
+      "Contents": [
+        "Potato creme soup",
+        "Bread roll"
+      ],
+      "Price": "1,60 €",
+      "Name": "Vegetarian table dish"
+    },
+    {
+      "NutritionFlags": {
+        "vegetarian": {},
+        "vegan": {}
+      },
+      "Contents": [
+        "Crispy sesame-carrot-stick",
+        "Sweet sour sauce"
+      ],
+      "Price": "2,20 €",
+      "Name": "Vegetarian"
+    },
+    {
+      "NutritionFlags": {
+        "pork": {}
+      },
+      "Contents": [
+        "Asparagus with ham",
+        "White wine hollandaise",
+        "Potatoes"
+      ],
+      "Price": "6,50 €",
+      "Name": "Suggestion of the day"
+    },
+    {
+      "NutritionFlags": {
+        "beef": {}
+      },
+      "Contents": [
+        "Beef strips",
+        "Mushrooms"
+      ],
+      "Price": "2,80 €",
+      "Name": "Classics"
+    },
+    {
+      "NutritionFlags": {
+        "chicken": {}
+      },
+      "Contents": [
+        "Sweet n spicy chicken",
+        "Banana peanut sauce",
+        "Basmati rice"
+      ],
+      "Price": "3,80 €",
+      "Name": "Wok"
+    },
+    {
+      "NutritionFlags": {
+        "vegetarian": {},
+        "vegan": {}
+      },
+      "Contents": [
+        "Sweet-spicy vegetables",
+        "Banana peanut sauce",
+        "Basmati rice"
+      ],
+      "Price": "3,80 €",
+      "Name": "Wok"
+    },
+    {
+      "NutritionFlags": {
+        "beef": {}
+      },
+      "Contents": [
+        "Cheeseburger",
+        "French fries",
+        "Soft drink 0,33 L"
+      ],
+      "Price": "4,90 €",
+      "Name": "Burger Classics"
+    },
+    {
+      "NutritionFlags": {
+        "vegetarian": {}
+      },
+      "Contents": [
+        "Veggie burger",
+        "French fries",
+        "Soft drink 0,33 L"
+      ],
+      "Price": "4,90 €",
+      "Name": "Burger Classics"
+    },
+    {
+      "NutritionFlags": {
+        "beef": {}
+      },
+      "Contents": [
+        "Italian burger",
+        "Rocket, tomatoes",
+        "cheese sauce",
+        "French fries",
+        "Soft drink 0,33 L"
+      ],
+      "Price": "4,90 €",
+      "Name": "Burger of the week"
+    }
+  ],
+  "Extras": [
+    {
+      "Name": "Main side-dish",
+      "Description": "potatoes or rice"
+    },
+    {
+      "Name": "secondary",
+      "Description": "Romanesco or Mixed salad"
+    }
+  ],
+  "LanguageKey": "en",
+  "MensaIdLanguageKeyDate": "mensa-academica;en;2024-05-15"
+}

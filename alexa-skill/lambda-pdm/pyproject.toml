@@ -19,6 +19,7 @@ license = {text = "MIT"}
 lint = "ruff check --fix ."
 format = "ruff format ."
 typecheck = "mypy ./src/"
+test = "pytest tests/"
 
 [tool.pdm.dev-dependencies]
 lint = [
@@ -30,6 +31,9 @@ typecheck = [
 ]
 i18n = [
     "babel>=2.15.0",
+]
+test = [
+    "pytest>=8.2.0",
 ]
 
 [tool.ruff.lint]
@@ -52,4 +56,3 @@ convention = "pep257"
 
 [tool.pdm]
 distribution = false
-
