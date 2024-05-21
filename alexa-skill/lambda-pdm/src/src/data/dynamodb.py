@@ -1,7 +1,8 @@
 from typing import TYPE_CHECKING
 
 import boto3
-from config import config
+
+from src.config import config
 
 if TYPE_CHECKING:
     from mypy_boto3_dynamodb.service_resource import Table

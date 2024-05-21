@@ -2,7 +2,8 @@ from typing import Optional, Set
 
 from ask_sdk_core.handler_input import HandlerInput
 from ask_sdk_core.utils import request_util
-from data.mensas import Mensa
+
+from src.data.mensas import Mensa
 
 
 def get_mensas_from_slot(handler_input: HandlerInput, slot_name: str) -> Optional[Set[Mensa]]:

@@ -1,21 +1,24 @@
 import logging
 
 from ask_sdk_core.skill_builder import SkillBuilder
-from handler.cancel_intent_handler import (
+
+from src.handler.cancel_intent_handler import (
     CancelOrStopIntentHandler,
 )
-from handler.catch_all_exception_handler import (
+from src.handler.catch_all_exception_handler import (
     CatchAllExceptionHandler,
 )
-from handler.get_mensa_offerings_intent_handler import GetMensaOfferingsIntentHandler
-from handler.help_intent_handler import (
+from src.handler.get_mensa_offerings_intent_handler import (
+    GetMensaOfferingsIntentHandler,
+)
+from src.handler.help_intent_handler import (
     HelpIntentHandler,
 )
-from handler.launch_request_handler import (
+from src.handler.launch_request_handler import (
     LaunchRequestHandler,
 )
-from handler.localization_interceptor import LocalizationInterceptor
-from handler.session_ended_request_handler import (
+from src.handler.localization_interceptor import LocalizationInterceptor
+from src.handler.session_ended_request_handler import (
     SessionEndedRequestHandler,
 )
 

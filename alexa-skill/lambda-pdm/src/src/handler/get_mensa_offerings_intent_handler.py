@@ -7,9 +7,10 @@ from ask_sdk_core.dispatch_components import (
 )
 from ask_sdk_core.handler_input import HandlerInput
 from ask_sdk_model import Response
-from data import dynamodb
-from data.mensas import Mensa
-from utils import alexa_slots, localization
+
+from src.data import dynamodb
+from src.data.mensas import Mensa
+from src.utils import alexa_slots, localization
 
 
 def _extract_user_inputs(handler_input: HandlerInput) -> Union[
