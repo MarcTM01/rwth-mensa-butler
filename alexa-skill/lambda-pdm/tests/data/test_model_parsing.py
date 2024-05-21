@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from data.model import MensaDayMenus
+from data.menu_model import MensaDayMenus
 
 
 def test_model_parsing():

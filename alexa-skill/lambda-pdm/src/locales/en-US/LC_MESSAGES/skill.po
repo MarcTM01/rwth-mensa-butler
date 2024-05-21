@@ -34,6 +34,21 @@ msgstr "Sorry, I had trouble doing what you asked. Please try again."
 msgid "HELP_MESSAGE"
 msgstr "You can ask me about the cafeteria menu at any of RWTH-Aachen universities mensas"
 
+msgid "NO_MENSA_SPECIFIED"
+msgstr "I'm sorry, I didn't understand which mensa you were asking about. Please try again."
+
+msgid "MULTIPLE_MENSAS_SPECIFIED"
+msgstr "Please specify exactly one mensa. I could not decide between {0}. Do Please try again."
+
+msgid "EMPTY_LIST"
+msgstr "empty"
+
+msgid "LIST_SEPERATOR"
+msgstr ", "
+
+msgid "LIST_CONJUNCTION"
+msgstr " and "
+
 # Mensa Names
 msgid "mensa-academica"
 msgstr "Mensa Academica"
