@@ -5,7 +5,7 @@
 groups = ["default", "lint", "typecheck", "i18n", "test"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:8f1390956d936c94b9eb8e0f94fbb18fb8480d263002d5b797e9a59954d7b9b0"
+content_hash = "sha256:23697dc813e4605e81ce36d22c574fda79e4a2dc56180c04a73b31e24d74a26f"
 
 [[package]]
 name = "annotated-types"
@@ -221,6 +221,20 @@ marker = "python_version < \"3.11\""
 files = [
     {file = "exceptiongroup-1.2.1-py3-none-any.whl", hash = "sha256:5258b9ed329c5bbdd31a309f53cbfb0b155341807f6ff7606a1e801a891b29ad"},
     {file = "exceptiongroup-1.2.1.tar.gz", hash = "sha256:a4785e48b045528f5bfe627b6ad554ff32def154f42372786903b7abcfe1aa16"},
+]
+
+[[package]]
+name = "holidays"
+version = "0.49"
+requires_python = ">=3.8"
+summary = "Generate and work with holidays in Python"
+groups = ["default"]
+dependencies = [
+    "python-dateutil",
+]
+files = [
+    {file = "holidays-0.49-py3-none-any.whl", hash = "sha256:7e7ae47477d675c093bd77ae64c13f8e8d0027db5803b19cba446ede285d59f6"},
+    {file = "holidays-0.49.tar.gz", hash = "sha256:c8209d8b7815fbe1e6b95c87b944115f787f6ad3496e11c242ff0b447425539c"},
 ]
 
 [[package]]

@@ -45,6 +45,12 @@ msgstr "I'm sorry, I didn't understand which date you were asking about. Please 
 msgid "NO_MENU_DATA_FOR_DATE"
 msgstr "I'm sorry, I don't have any menu data for {0} at {1}. It's possible that {0} is closed that day or you are asking for data too far in the future or the past."
 
+msgid "NO_MENU_DATA_FOR_WEEKEND"
+msgstr "I'm sorry, I don't have any menu data for {mensa} at {date}. But this is not surprising as {date} is a {weekday}."
+
+msgid "NO_MENU_DATA_FOR_PUBLIC_HOLIDAY"
+msgstr "I'm sorry, I don't have any menu data for {mensa} at {date}. But this is not surprising as {date} is a public holiday in northrhine westphalia."
+
 # List annoucement
 msgid "EMPTY_LIST"
 msgstr "empty"
@@ -68,8 +74,14 @@ msgstr " with "
 msgid "DISH_CONTENT_FURTHER_CONJUNCTION"
 msgstr " and "
 
+msgid "DISH_ANNOUNCEMENT_PREFIX"
+msgstr "I'm happy to provide you with the menu for {mensa} on {date}. "
+
 msgid "NUMBER_OF_ADDITIONAL_DISHES"
-msgstr "Additionally, there are {0} other dishes including {1}."
+msgstr "Additionally, there are {0} other dishes to choose from: {1}."
+
+msgid "ONE_ADDITIONAL_DISH"
+msgstr "Additionally, there is one other dish to choose from: {0}."
 
 # Annoucement for dish types
 msgid "ANNOUNCEMENT_PREPOSITION_TABLE_DISH"
@@ -139,3 +151,25 @@ msgstr "Mensa Vita"
 
 msgid "mensa-juelich"
 msgstr "Mensa Jülich"
+
+# Weekdays
+msgid "DAY_0"
+msgstr "Monday"
+
+msgid "DAY_1"
+msgstr "Tuesday"
+
+msgid "DAY_2"
+msgstr "Wednesday"
+
+msgid "DAY_3"
+msgstr "Thursday"
+
+msgid "DAY_4"
+msgstr "Friday"
+
+msgid "DAY_5"
+msgstr "Saturday"
+
+msgid "DAY_6"
+msgstr "Sunday"

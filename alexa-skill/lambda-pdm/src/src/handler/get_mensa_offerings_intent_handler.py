@@ -2,6 +2,7 @@ import datetime
 from typing import Callable, Tuple, Union, cast
 
 import ask_sdk_core.utils as ask_utils
+import holidays
 from ask_sdk_core.dispatch_components import (
     AbstractRequestHandler,
 )
@@ -16,7 +17,7 @@ from src.utils.localization import I18nFunction
 
 
 def _require_exactly_one_mensa_specified(
-    handler_input: HandlerInput,
+        handler_input: HandlerInput,
 ) -> Union[Response, Mensa]:
     _ = cast(
         Callable[[str], str],
@@ -40,7 +41,7 @@ def _require_exactly_one_mensa_specified(
 
 
 def _require_one_date_specified(
-    handler_input: HandlerInput,
+        handler_input: HandlerInput,
 ) -> Union[Response, datetime.date]:
     _ = cast(
         Callable[[str], str],
@@ -52,27 +53,52 @@ def _require_one_date_specified(
     return date
 
 
-def _retrieve_mensa_offerings(
-    handler_input: HandlerInput, mensa: Mensa, date: datetime.date
-) -> Union[Response, MensaDayMenus]:
+def _speak_probable_reason_for_no_menu_data(
+        handler_input: HandlerInput, mensa: Mensa, date: datetime.date
+) -> Response:
     _ = cast(
-        Callable[[str], str],
+        I18nFunction,
         handler_input.attributes_manager.request_attributes["_"],
     )
+
+    weekday = date.weekday()
+    if weekday == 5 or weekday == 6:
+        return handler_input.response_builder.speak(
+            _("NO_MENU_DATA_FOR_WEEKEND").format(
+                mensa=_(mensa.mensaId),
+                date=date.isoformat(),
+                weekday=_(f"DAY_{weekday}"),
+            )
+        ).response
+
+    nrw_holidays = holidays.country_holidays("DE", state="NW", years=[date.year])
+    if date in nrw_holidays:
+        return handler_input.response_builder.speak(
+            _("NO_MENU_DATA_FOR_PUBLIC_HOLIDAY").format(
+                mensa=_(mensa.mensaId), date=date.isoformat()
+            )
+        ).response
+
+    return handler_input.response_builder.speak(
+        _("NO_MENU_DATA_FOR_DATE").format(_(mensa.mensaId), date.isoformat())
+    ).response
+
+
+def _retrieve_mensa_offerings(
+        handler_input: HandlerInput, mensa: Mensa, date: datetime.date
+) -> Union[Response, MensaDayMenus]:
     table = dynamodb.get_dynamodb_table()
     dynamodb_item_id = f"{mensa.mensaId};en;{date.isoformat()}"
     get_response = table.get_item(Key={"MensaIdLanguageKeyDate": dynamodb_item_id})
 
     if "Item" not in get_response:
-        return handler_input.response_builder.speak(
-            _("NO_MENU_DATA_FOR_DATE").format(_(mensa.mensaId), date.isoformat())
-        ).response
+        return _speak_probable_reason_for_no_menu_data(handler_input, mensa, date)
 
     return MensaDayMenus.model_validate(get_response["Item"])
 
 
 def _retrieve_user_inputs(
-    handler_input: HandlerInput,
+        handler_input: HandlerInput,
 ) -> Union[Response, Tuple[Mensa, datetime.date, MensaDayMenus]]:
     mensa_response_or_value = _require_exactly_one_mensa_specified(handler_input)
     if isinstance(mensa_response_or_value, Response):
@@ -92,7 +118,7 @@ def _retrieve_user_inputs(
 
 
 def _speak_classical_and_vegetarian_dishes(
-    _: I18nFunction, mensa_offerings: MensaDayMenus
+        _: I18nFunction, mensa_offerings: MensaDayMenus
 ) -> str:
     veggie_dish = mensa_offerings.get_menus_by_type(DishType.VEGETARIAN)
     classical_dish = mensa_offerings.get_menus_by_type(DishType.CLASSICS)
@@ -107,7 +133,7 @@ def _speak_classical_and_vegetarian_dishes(
 
 
 def _speak_summary_about_additional_dishes(
-    _: I18nFunction, mensa_offerings: MensaDayMenus
+        _: I18nFunction, mensa_offerings: MensaDayMenus
 ) -> str:
     additional_dishes = [
         menu
@@ -121,6 +147,10 @@ def _speak_summary_about_additional_dishes(
     dish_type_announcement = localization.build_localized_list(
         _, additional_dish_names, conjunction=False
     )
+
+    if len(additional_dishes) == 1:
+        return _("ONE_ADDITIONAL_DISH").format(dish_type_announcement)
+
     return _("NUMBER_OF_ADDITIONAL_DISHES").format(
         len(additional_dishes), dish_type_announcement
     )
@@ -145,7 +175,10 @@ class GetMensaOfferingsIntentHandler(AbstractRequestHandler):
             return response
         mensa, date, mensa_offerings = response
 
-        speak_output = _speak_classical_and_vegetarian_dishes(_, mensa_offerings)
+        speak_output = _("DISH_ANNOUNCEMENT_PREFIX").format(
+            mensa=_(mensa.mensaId), date=date.isoformat()
+        )
+        speak_output += " " + _speak_classical_and_vegetarian_dishes(_, mensa_offerings)
         speak_output += " " + mensa_offerings.generate_extras_announcement(_)
         speak_output += " " + _speak_summary_about_additional_dishes(_, mensa_offerings)
 
