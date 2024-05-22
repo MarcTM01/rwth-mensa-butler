@@ -20,6 +20,7 @@ Currently, the skill is not published on the Alexa Skill Store. More helpful ins
 ## :dart: Current and future Features
 - [X] Get the menu for any mensa of RWTH Aachen University for specific days, including past days (`What's on the menu at mensa vita next monday?`)
 - [X] Get probable reasons for data being unavailable (`I don't have any menu data for mensa vita on 2024-05-30. But this is not surprising, as this is a public holiday in northrhine westphalia.`)
+- [X] Architecture diagram svg supports automated color-inversion for dark mode users
 - [ ] Multi-Language Support (Currently supported: :uk:, Planned: :de:)
 - [ ] Inquire about specific dishes (`What burgers are offered at mensa academica today?`)
 - [ ] Get prices for specific dishes (`How much does the pizza at mensa academica cost?`)
@@ -28,7 +29,7 @@ Currently, the skill is not published on the Alexa Skill Store. More helpful ins
 - [ ] (Maybe) Get the opening hours of a mensa (`When does mensa academica close today?`)
 
 ## :gear: Architecture
-![Architecture diagram](./docs/architecture.svg)
+![Architecture diagram](docs/architecture/architecture.svg)
 
 ### Design decisions
 **Q:** Why does the skill lambda directly access the database instead of using an API Gateway?
