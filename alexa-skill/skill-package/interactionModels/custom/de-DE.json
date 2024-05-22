@@ -31,18 +31,23 @@
           ],
           "name": "GetMensaOfferingsIntent",
           "samples": [
-            "what\u0027s on {date} menu at {mensa}",
-            "what\u0027s on the menu {date} at {mensa}",
-            "what\u0027s on the menu at {mensa} {date}",
-            "what culinary delights await at {mensa} for {date}",
-            "about {mensa} s menu for {date}",
-            "about the dishes available at {mensa} for {date}",
-            "for the menu lineup at {mensa} for {date}",
-            "what\u0027s cooking at {mensa} on {date}",
-            "what they\u0027re serving at {mensa} {date}",
-            "could you inquire about the menu at {mensa} for {date}",
-            "for {date} offerings at {mensa}",
-            "what\u0027s on the menu at {mensa} for {date} "
+            "was gibt es am {date} in {mensa} zu essen",
+            "was steht am {date} auf dem Speiseplan in {mensa}",
+            "was steht am {date} in {mensa} auf dem Speiseplan",
+            "welche kulinarischen Genüsse erwarten uns am {date} in {mensa}",
+            "über das Menü in {mensa} am {date}",
+            "über die verfügbaren Gerichte in {mensa} am {date}",
+            "für die Speiseauswahl in {mensa} am {date}",
+            "was wird am {date} in {mensa} gekocht",
+            "was wird am {date} in {mensa} serviert",
+            "könntest du nach dem Menü in {mensa} am {date} fragen",
+            "für die Angebote am {date} in {mensa}",
+            "was steht am {date} im {mensa} auf dem Speiseplan",
+            "was es am {date} in {mensa} zu essen gibt",
+            "was gibt es am {date} in {mensa}",
+            "nach dem {date} Speiseplan der {mensa}",
+            "was es {date} in der {mensa} zu essen gibt",
+            "was am {date} in der {mensa} auf dem Speiseplan steht"
           ]
         }
       ],
@@ -116,8 +121,10 @@
             {
               "name": {
                 "synonyms": [
-                  "Computer Science Mensa",
-                  "CS Mensa",
+                  "Info-Zentrum Mensa",
+                  "Informatik Zentrum Mensa",
+                  "Informatik Zentrum",
+                  "Informatik Mensa",
                   "Mensa Ahornstraße"
                 ],
                 "value": "Ahornstraße"

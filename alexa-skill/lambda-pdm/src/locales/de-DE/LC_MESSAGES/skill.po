@@ -1,0 +1,176 @@
+# German (Germany) translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-05-10 10:28+0200\n"
+"PO-Revision-Date: 2024-05-10 10:30+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: de_DE\n"
+"Language-Team: de_DE <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.15.0\n"
+
+msgid "LANG_ID"
+msgstr "de"
+
+msgid "LAUNCH_MESSAGE"
+msgstr "Willkommen! Du kannst mich nach dem Speiseplan der Mensen der RWTH-Aachen fragen. Wie kann ich dir helfen?"
+
+msgid "CANCEL_MESSAGE"
+msgstr "Auf Wiedersehen!"
+
+msgid "ERROR_MESSAGE"
+msgstr "Entschuldigung, ich hatte Probleme mit Ihrer Anfrage. Bitte versuchen Sie es erneut."
+
+msgid "HELP_MESSAGE"
+msgstr "Sie können mich nach dem Speiseplan aller Mensen der RWTH Aachen fragen."
+
+msgid "NO_MENSA_SPECIFIED"
+msgstr "Entschuldigung, ich habe nicht verstanden, nach welcher Mensa Sie gefragt haben. Bitte versuchen Sie es erneut."
+
+msgid "MULTIPLE_MENSAS_SPECIFIED"
+msgstr "Bitte geben Sie genau eine Mensa an. Ich konnte mich nicht zwischen {0} entscheiden. Bitte versuchen Sie es erneut."
+
+msgid "NO_DATE_SPECIFIED"
+msgstr "Entschuldigung, ich habe nicht verstanden, nach welchem Datum Sie gefragt haben. Bitte versuchen Sie es erneut."
+
+msgid "NO_MENU_DATA_FOR_DATE"
+msgstr "Entschuldigung, ich habe keine Menüdaten für {0} am {1}. Es ist möglich, dass {0} an diesem Tag geschlossen ist oder Sie nach Daten fragen, die zu weit in der Zukunft oder Vergangenheit liegen."
+
+msgid "NO_MENU_DATA_FOR_WEEKEND"
+msgstr "Entschuldigung, ich habe keine Menüdaten für {mensa} am {date}. Aber das ist nicht überraschend, da {date} ein {weekday} ist."
+
+msgid "NO_MENU_DATA_FOR_PUBLIC_HOLIDAY"
+msgstr "Entschuldigung, ich habe keine Menüdaten für {mensa} am {date}. Aber das ist nicht überraschend, da {date} ein Feiertag in Nordrhein-Westfalen ist."
+
+# List annoucement
+msgid "EMPTY_LIST"
+msgstr "leer"
+
+msgid "LIST_SEPERATOR"
+msgstr ", "
+
+msgid "LIST_CONJUNCTION"
+msgstr " und "
+
+msgid "LIST_DISJUNCTION"
+msgstr " oder "
+
+# Dish annoucement
+msgid "DISH_CONTENT_EMPTY"
+msgstr "nichts"
+
+msgid "DISH_CONTENT_PRIMARY_SECONDARY_BARRIER"
+msgstr " mit "
+
+msgid "DISH_CONTENT_FURTHER_CONJUNCTION"
+msgstr " und "
+
+msgid "DISH_ANNOUNCEMENT_PREFIX"
+msgstr "Hier das Menü für die {mensa} am {date}: "
+
+msgid "NUMBER_OF_ADDITIONAL_DISHES"
+msgstr "Zusätzlich gibt es {0} weitere Gerichte zur Auswahl: {1}."
+
+msgid "ONE_ADDITIONAL_DISH"
+msgstr "Zusätzlich gibt es ein weiteres Gericht zur Auswahl: {0}."
+
+# Annoucement for dish types
+msgid "ANNOUNCEMENT_PREPOSITION_TABLE_DISH"
+msgstr "Als Tellergericht gibt es {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_VEGETARIAN_TABLE_DISH"
+msgstr "Als vegetarisches Tellergericht gibt es {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_VEGETARIAN"
+msgstr "Das vegetarische Gericht ist {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_CLASSICS"
+msgstr "Im Klassiker gibt es {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_PASTA"
+msgstr "Als Nudelgericht gibt es {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_WOK"
+msgstr "Im Wok gibt es {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_PIZZA_OF_THE_DAY"
+msgstr "Die Pizza des Tages ist {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_PIZZA_CLASSICS"
+msgstr "Die Pizza Classics ist {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_BURGER_CLASSICS"
+msgstr "Als Burger gibt es {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_BURGER_OF_THE_WEEK"
+msgstr "Der Burger der Woche ist ein {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_UNKNOWN"
+msgstr "Das unbekannte Gericht {name} ist {contents}"
+
+# Extras announcement
+msgid "EXTRAS_EMPTY"
+msgstr "Es gibt keine Beilagen."
+
+msgid "EXTRAS_FORMAT"
+msgstr "Als Beilage gibt es {0}."
+
+# Mensa Names
+msgid "mensa-academica"
+msgstr "Mensa Academica"
+
+msgid "mensa-ahorn"
+msgstr "Mensa Ahornstraße"
+
+msgid "bistro-templergraben"
+msgstr "Bistro Templergraben"
+
+msgid "mensa-bayernallee"
+msgstr "Mensa Bayernallee"
+
+msgid "mensa-eupener-strasse"
+msgstr "Mensa Eupener Straße"
+
+msgid "mensa-kmac"
+msgstr "Mensa KMAC"
+
+msgid "mensa-südpark"
+msgstr "Mensa Südpark"
+
+msgid "mensa-vita"
+msgstr "Mensa Vita"
+
+msgid "mensa-juelich"
+msgstr "Mensa Jülich"
+
+# Weekdays
+msgid "DAY_0"
+msgstr "Montag"
+
+msgid "DAY_1"
+msgstr "Dienstag"
+
+msgid "DAY_2"
+msgstr "Mittwoch"
+
+msgid "DAY_3"
+msgstr "Donnerstag"
+
+msgid "DAY_4"
+msgstr "Freitag"
+
+msgid "DAY_5"
+msgstr "Samstag"
+
+msgid "DAY_6"
+msgstr "Sonntag"
+

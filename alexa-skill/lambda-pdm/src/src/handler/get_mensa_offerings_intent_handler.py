@@ -17,7 +17,7 @@ from src.utils.localization import I18nFunction
 
 
 def _require_exactly_one_mensa_specified(
-        handler_input: HandlerInput,
+    handler_input: HandlerInput,
 ) -> Union[Response, Mensa]:
     _ = cast(
         Callable[[str], str],
@@ -41,7 +41,7 @@ def _require_exactly_one_mensa_specified(
 
 
 def _require_one_date_specified(
-        handler_input: HandlerInput,
+    handler_input: HandlerInput,
 ) -> Union[Response, datetime.date]:
     _ = cast(
         Callable[[str], str],
@@ -54,7 +54,7 @@ def _require_one_date_specified(
 
 
 def _speak_probable_reason_for_no_menu_data(
-        handler_input: HandlerInput, mensa: Mensa, date: datetime.date
+    handler_input: HandlerInput, mensa: Mensa, date: datetime.date
 ) -> Response:
     _ = cast(
         I18nFunction,
@@ -85,10 +85,15 @@ def _speak_probable_reason_for_no_menu_data(
 
 
 def _retrieve_mensa_offerings(
-        handler_input: HandlerInput, mensa: Mensa, date: datetime.date
+    handler_input: HandlerInput, mensa: Mensa, date: datetime.date
 ) -> Union[Response, MensaDayMenus]:
+    _ = cast(
+        I18nFunction,
+        handler_input.attributes_manager.request_attributes["_"],
+    )
+
     table = dynamodb.get_dynamodb_table()
-    dynamodb_item_id = f"{mensa.mensaId};en;{date.isoformat()}"
+    dynamodb_item_id = f"{mensa.mensaId};{_('LANG_ID')};{date.isoformat()}"
     get_response = table.get_item(Key={"MensaIdLanguageKeyDate": dynamodb_item_id})
 
     if "Item" not in get_response:
@@ -98,7 +103,7 @@ def _retrieve_mensa_offerings(
 
 
 def _retrieve_user_inputs(
-        handler_input: HandlerInput,
+    handler_input: HandlerInput,
 ) -> Union[Response, Tuple[Mensa, datetime.date, MensaDayMenus]]:
     mensa_response_or_value = _require_exactly_one_mensa_specified(handler_input)
     if isinstance(mensa_response_or_value, Response):
@@ -118,7 +123,7 @@ def _retrieve_user_inputs(
 
 
 def _speak_classical_and_vegetarian_dishes(
-        _: I18nFunction, mensa_offerings: MensaDayMenus
+    _: I18nFunction, mensa_offerings: MensaDayMenus
 ) -> str:
     veggie_dish = mensa_offerings.get_menus_by_type(DishType.VEGETARIAN)
     classical_dish = mensa_offerings.get_menus_by_type(DishType.CLASSICS)
@@ -133,7 +138,7 @@ def _speak_classical_and_vegetarian_dishes(
 
 
 def _speak_summary_about_additional_dishes(
-        _: I18nFunction, mensa_offerings: MensaDayMenus
+    _: I18nFunction, mensa_offerings: MensaDayMenus
 ) -> str:
     additional_dishes = [
         menu

@@ -4,7 +4,7 @@ Then this is the solution for you!
 
 **RWTH Mensa Buttler is an Amazon Alexa Skill that provides you with the menu of all mensas of RWTH Aachen University.**
 
-## :warning: Disclaimers:
+## :warning: Disclaimers
 I created this skill for my personal use and education as a hobby side-project. I'm not taking any responsibility for the correctness of the data provided by this skill.
 This software is also in no way affiliated with the Studierendenwerk Aachen, the operator of the canteens of RWTH Aachen University.
 
@@ -21,7 +21,7 @@ Currently, the skill is not published on the Alexa Skill Store. More helpful ins
 - [X] Get the menu for any mensa of RWTH Aachen University for specific days, including past days (`What's on the menu at mensa vita next monday?`)
 - [X] Get probable reasons for data being unavailable (`I don't have any menu data for mensa vita on 2024-05-30. But this is not surprising, as this is a public holiday in northrhine westphalia.`)
 - [X] Architecture diagram svg supports automated color-inversion for dark mode users
-- [ ] Multi-Language Support (Currently supported: :uk:, Planned: :de:)
+- [X] Multi-Language Support (Currently supported: :uk:, :de:)
 - [ ] Inquire about specific dishes (`What burgers are offered at mensa academica today?`)
 - [ ] Get prices for specific dishes (`How much does the pizza at mensa academica cost?`)
 - [ ] Get all vegetarian or vegan dishes for a specific day (`What vegetarian dishes are offered at bistro templergraben tomorrow?`)

@@ -29,9 +29,9 @@ echo "Compiling language files"
                                   pybabel compile -i locales/de-DE/LC_MESSAGES/skill.po -o locales/de-DE/LC_MESSAGES/skill.mo)
 
 echo "Updating skill-package"
-rsync -a -v --delete-after skill-package "$TARGET_DIRECTORY/skill-package/"
+rsync -a -v --delete-after skill-package/interactionModels/ "$TARGET_DIRECTORY/skill-package/interactionModels/"
 
 if [ "$#" -eq 2 ] && [ "$2" == "commit" ]; then
   echo "Commiting changes"
-  (cd "$TARGET_DIRECTORY" && git add lambda && git commit -m "Update lambda source code and requirements.txt" && git push)
+  (cd "$TARGET_DIRECTORY" && git add lambda skill-package && git commit -m "Update lambda source code and requirements.txt" && git push)
 fi
