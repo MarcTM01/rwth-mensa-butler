@@ -18,6 +18,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.15.0\n"
 
+msgid "LANG_ID"
+msgstr "en"
+
 msgid "LAUNCH_MESSAGE"
 msgstr "Welcome to this skill for the mensa of RWTH-Aachen University. You can ask me about the cafeteria menu."
 
@@ -42,6 +45,7 @@ msgstr "I'm sorry, I didn't understand which date you were asking about. Please 
 msgid "NO_MENU_DATA_FOR_DATE"
 msgstr "I'm sorry, I don't have any menu data for {0} at {1}. It's possible that {0} is closed that day or you are asking for data too far in the future or the past."
 
+# List annoucement
 msgid "EMPTY_LIST"
 msgstr "empty"
 
@@ -50,6 +54,63 @@ msgstr ", "
 
 msgid "LIST_CONJUNCTION"
 msgstr " and "
+
+msgid "LIST_DISJUNCTION"
+msgstr " or "
+
+# Dish annoucement
+msgid "DISH_CONTENT_EMPTY"
+msgstr "nothing"
+
+msgid "DISH_CONTENT_PRIMARY_SECONDARY_BARRIER"
+msgstr " with "
+
+msgid "DISH_CONTENT_FURTHER_CONJUNCTION"
+msgstr " and "
+
+msgid "NUMBER_OF_ADDITIONAL_DISHES"
+msgstr "Additionally, there are {0} other dishes including {1}."
+
+# Annoucement for dish types
+msgid "ANNOUNCEMENT_PREPOSITION_TABLE_DISH"
+msgstr "The stew has {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_VEGETARIAN_TABLE_DISH"
+msgstr "The vegetarian table dish has {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_VEGETARIAN"
+msgstr "The vegetarian dish has {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_CLASSICS"
+msgstr "The classical dish has {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_PASTA"
+msgstr "The pasta dish has {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_WOK"
+msgstr "The wok contains {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_PIZZA_OF_THE_DAY"
+msgstr "The pizza of the day is {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_PIZZA_CLASSICS"
+msgstr "The classical pizza is {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_BURGER_CLASSICS"
+msgstr "The classical burger is {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_BURGER_OF_THE_WEEK"
+msgstr "The burger of the week is {contents}"
+
+msgid "ANNOUNCEMENT_PREPOSITION_UNKNOWN"
+msgstr "The unusual {name} has {contents}"
+
+# Extras announcement
+msgid "EXTRAS_EMPTY"
+msgstr "There are no side dishes."
+
+msgid "EXTRAS_FORMAT"
+msgstr "As a side dish, you can choose from: {0}."
 
 # Mensa Names
 msgid "mensa-academica"

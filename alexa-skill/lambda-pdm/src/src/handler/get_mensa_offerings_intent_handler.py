@@ -10,12 +10,13 @@ from ask_sdk_model import Response
 
 from src.data import dynamodb
 from src.data.mensas import Mensa
-from src.data.menu_model import MensaDayMenus
+from src.data.menu_model import DishType, MensaDayMenus
 from src.utils import alexa_slots, localization
+from src.utils.localization import I18nFunction
 
 
 def _require_exactly_one_mensa_specified(
-        handler_input: HandlerInput,
+    handler_input: HandlerInput,
 ) -> Union[Response, Mensa]:
     _ = cast(
         Callable[[str], str],
@@ -24,9 +25,7 @@ def _require_exactly_one_mensa_specified(
 
     mensas = alexa_slots.get_mensas_from_slot(handler_input, "mensa")
     if mensas is None or len(mensas) == 0:
-        return handler_input.response_builder.speak(
-            _("NO_MENSA_SPECIFIED")
-        ).response
+        return handler_input.response_builder.speak(_("NO_MENSA_SPECIFIED")).response
 
     if len(mensas) != 1:
         mensa_names = map(lambda mensa_obj: _(mensa_obj.mensaId), mensas)
@@ -41,7 +40,7 @@ def _require_exactly_one_mensa_specified(
 
 
 def _require_one_date_specified(
-        handler_input: HandlerInput,
+    handler_input: HandlerInput,
 ) -> Union[Response, datetime.date]:
     _ = cast(
         Callable[[str], str],
@@ -49,14 +48,13 @@ def _require_one_date_specified(
     )
     date = alexa_slots.get_date_from_slot(handler_input, "date")
     if date is None:
-        return handler_input.response_builder.speak(
-            _("NO_DATE_SPECIFIED")
-        ).response
+        return handler_input.response_builder.speak(_("NO_DATE_SPECIFIED")).response
     return date
 
 
-def _retrieve_mensa_offerings(handler_input: HandlerInput, mensa: Mensa, date: datetime.date) -> Union[
-    Response, MensaDayMenus]:
+def _retrieve_mensa_offerings(
+    handler_input: HandlerInput, mensa: Mensa, date: datetime.date
+) -> Union[Response, MensaDayMenus]:
     _ = cast(
         Callable[[str], str],
         handler_input.attributes_manager.request_attributes["_"],
@@ -73,6 +71,61 @@ def _retrieve_mensa_offerings(handler_input: HandlerInput, mensa: Mensa, date: d
     return MensaDayMenus.model_validate(get_response["Item"])
 
 
+def _retrieve_user_inputs(
+    handler_input: HandlerInput,
+) -> Union[Response, Tuple[Mensa, datetime.date, MensaDayMenus]]:
+    mensa_response_or_value = _require_exactly_one_mensa_specified(handler_input)
+    if isinstance(mensa_response_or_value, Response):
+        return mensa_response_or_value
+
+    date_response_or_value = _require_one_date_specified(handler_input)
+    if isinstance(date_response_or_value, Response):
+        return date_response_or_value
+
+    mensa_offerings = _retrieve_mensa_offerings(
+        handler_input, mensa_response_or_value, date_response_or_value
+    )
+    if isinstance(mensa_offerings, Response):
+        return mensa_offerings
+
+    return mensa_response_or_value, date_response_or_value, mensa_offerings
+
+
+def _speak_classical_and_vegetarian_dishes(
+    _: I18nFunction, mensa_offerings: MensaDayMenus
+) -> str:
+    veggie_dish = mensa_offerings.get_menus_by_type(DishType.VEGETARIAN)
+    classical_dish = mensa_offerings.get_menus_by_type(DishType.CLASSICS)
+
+    speak_output = ""
+    if len(veggie_dish) > 0:
+        speak_output += veggie_dish[0].generate_full_announcement(_) + ". "
+    if len(classical_dish) > 0:
+        speak_output += classical_dish[0].generate_full_announcement(_) + "."
+
+    return speak_output
+
+
+def _speak_summary_about_additional_dishes(
+    _: I18nFunction, mensa_offerings: MensaDayMenus
+) -> str:
+    additional_dishes = [
+        menu
+        for menu in mensa_offerings.menus
+        if menu.dish_type not in {DishType.CLASSICS, DishType.VEGETARIAN}
+    ]
+    additional_dish_names = set([menu.name for menu in additional_dishes])
+    if len(additional_dishes) <= 0:
+        return ""
+
+    dish_type_announcement = localization.build_localized_list(
+        _, additional_dish_names, conjunction=False
+    )
+    return _("NUMBER_OF_ADDITIONAL_DISHES").format(
+        len(additional_dishes), dish_type_announcement
+    )
+
+
 class GetMensaOfferingsIntentHandler(AbstractRequestHandler):
     """Handler for GetMensaOfferingsIntent."""
 
@@ -83,22 +136,17 @@ class GetMensaOfferingsIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input: HandlerInput) -> Response:
         """Overwritten."""
         _ = cast(
-            Callable[[str], str],
+            I18nFunction,
             handler_input.attributes_manager.request_attributes["_"],
         )
 
-        mensa_response_or_value = _require_exactly_one_mensa_specified(handler_input)
-        if isinstance(mensa_response_or_value, Response):
-            return mensa_response_or_value
+        response = _retrieve_user_inputs(handler_input)
+        if isinstance(response, Response):
+            return response
+        mensa, date, mensa_offerings = response
 
-        date_response_or_value = _require_one_date_specified(handler_input)
-        if isinstance(date_response_or_value, Response):
-            return date_response_or_value
-
-        mensa_offerings = _retrieve_mensa_offerings(handler_input, mensa_response_or_value, date_response_or_value)
-        if isinstance(mensa_offerings, Response):
-            return mensa_offerings
-
-        speak_output = f"There are a total of {len(mensa_offerings.menus)} menus available for {mensa_response_or_value.mensaId} on {date_response_or_value.isoformat()}."
+        speak_output = _speak_classical_and_vegetarian_dishes(_, mensa_offerings)
+        speak_output += " " + mensa_offerings.generate_extras_announcement(_)
+        speak_output += " " + _speak_summary_about_additional_dishes(_, mensa_offerings)
 
         return handler_input.response_builder.speak(speak_output).response

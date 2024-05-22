@@ -32,6 +32,7 @@
           "name": "GetMensaOfferingsIntent",
           "samples": [
             "what\u0027s on {date} menu at {mensa}",
+            "what\u0027s on the menu {date} at {mensa}",
             "what\u0027s on the menu at {mensa} {date}",
             "what culinary delights await at {mensa} for {date}",
             "about {mensa} s menu for {date}",
