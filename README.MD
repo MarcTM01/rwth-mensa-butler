@@ -1,0 +1,45 @@
+# RWTH Mensa Buttler: A inofficial alexa skill for the canteens of RWTH Aachen University
+Have you ever wanted to check the menu at the canteens of RWTH Aachen University without getting out of bed? 
+Then this is the solution for you!
+
+**RWTH Mensa Buttler is an Amazon Alexa Skill that provides you with the menu of all mensas of RWTH Aachen University.**
+
+## :warning: Disclaimers:
+I created this skill for my personal use and education as a hobby side-project. I'm not taking any responsibility for the correctness of the data provided by this skill.
+This software is also in no way affiliated with the Studierendenwerk Aachen, the operator of the canteens of RWTH Aachen University.
+
+While the Studierendenwerk Aachen graciously granted me permission to automatically crawl their website for the menu data,
+they are not responsible for this software.
+The Studierendenwerk Aachen does not endorse this software and is not responsible for any issues that may arise from its use.
+Menu data provided by this skill may be incorrect, incomplete or out of date.
+The Studierendenwerk Aachen will not answer any queries regarding this software.
+
+## :rocket: Sounds great! How do I use it?
+Currently, the skill is not published on the Alexa Skill Store. More helpful instructions will be provided soon.
+
+## :dart: Current and future Features
+- [X] Get the menu for any mensa of RWTH Aachen University for specific days, including past days (`What's on the menu at mensa vita next monday?`)
+- [X] Get probable reasons for data being unavailable (`I don't have any menu data for mensa vita on 2024-05-30. But this is not surprising, as this is a public holiday in northrhine westphalia.`)
+- [ ] Multi-Language Support (Currently supported: :uk:, Planned: :de:)
+- [ ] Inquire about specific dishes (`What burgers are offered at mensa academica today?`)
+- [ ] Get prices for specific dishes (`How much does the pizza at mensa academica cost?`)
+- [ ] Get all vegetarian or vegan dishes for a specific day (`What vegetarian dishes are offered at bistro templergraben tomorrow?`)
+- [ ] Get a list of all mensas (`Which mensas are there?`)
+- [ ] (Maybe) Get the opening hours of a mensa (`When does mensa academica close today?`)
+
+## :gear: Architecture
+![Architecture diagram](./docs/architecture.svg)
+
+### Design decisions
+**Q:** Why does the skill lambda directly access the database instead of using an API Gateway?
+
+**A:** Amazon does not charge for invocations of the skill lambda. 
+However, they do charge for invocations of any other lambda or usage of an API Gateway (beyond the 12-month free tier).
+I want to avoid any case where a user-made request would result in a charge for me as this could easily be abused by a malicious user.
+Accessing the database directly does not incur any cost as the always-free tier of AWS includes sufficient reserved capacity units for this skill.
+
+
+**Q:** Why are the different components of the skill written in different languages?
+
+**A:** The scrapper is written in go primarily because I wanted to learn go.
+At the time of creation, amazon does not support the creation of alexa-hosted skills in go. Therefore, I went with python for the skill lambda.

@@ -1,0 +1,127 @@
+<mxfile host="Electron" modified="2024-05-22T17:08:17.148Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.2.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="Gp6MafgRRgGjzCR3JcMu" version="24.2.5" type="device">
+  <diagram name="Page-1" id="gZO7lSeUpyeOHykqWosV">
+    <mxGraphModel dx="589" dy="295" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GmffOXv_5HLjRrGuA_52-4" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://www.studierendenwerk-aachen.de/files/layout/images/logo-studentenwerk.png;" parent="1" vertex="1">
+          <mxGeometry x="32.81" y="101.5" width="87.08" height="52.5" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-6" value="Mensa Menus&lt;div&gt;(HTML)&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="46.35" y="170" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-9" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="140" as="sourcePoint" />
+            <mxPoint x="130" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-10" value="Retrieves" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="150" y="110" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-11" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.clock;" parent="1" vertex="1">
+          <mxGeometry x="135" y="150" width="15" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-12" value="every 4 hours" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="140" y="142.5" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-20" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://d7qzviu3xw2xc.cloudfront.net/alexa/assets/images/Alexa_Logo_RGB_BLUE.png;" parent="1" vertex="1">
+          <mxGeometry x="240" y="245" width="64.67" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-21" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0.968;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="GmffOXv_5HLjRrGuA_52-30" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="280" as="sourcePoint" />
+            <mxPoint x="480" y="190" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="480" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-22" value="Accesses Data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="350" y="250" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-25" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudformation;" parent="1" vertex="1">
+          <mxGeometry x="591" y="30" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-29" value="CloudFormation&lt;div&gt;Stack&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="560" y="78" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-14" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.dynamodb;" parent="1" vertex="1">
+          <mxGeometry x="460" y="104" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-8" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" parent="1" vertex="1">
+          <mxGeometry x="260" y="112" width="38" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-15" value="AWS Lambda" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="229" y="154" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-19" value="Stores Parsed&lt;div&gt;Information&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="330" y="95" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-13" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="139.44" as="sourcePoint" />
+            <mxPoint x="450" y="139.44" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-30" value="AWS DynamoDB" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="420" y="150" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-33" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="GmffOXv_5HLjRrGuA_52-14" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="200" as="sourcePoint" />
+            <mxPoint x="590" y="50" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="480" y="50" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-34" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="GmffOXv_5HLjRrGuA_52-25" target="GmffOXv_5HLjRrGuA_52-8" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="200" as="sourcePoint" />
+            <mxPoint x="440" y="150" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="280" y="40" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-35" value="Alexa Skill" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="232.33" y="290" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-36" value="Hungry&lt;div&gt;Student&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="61.35000000000002" y="245" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-37" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="100" y="280" as="sourcePoint" />
+            <mxPoint x="220" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-38" value="Uses" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="135" y="255" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-39" value="" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.github" parent="1" vertex="1">
+          <mxGeometry x="624" y="14" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-40" value="./sam-app/" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="640" y="14" width="86" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-43" value="./menu-scrapper-lambda/" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="290" y="71.5" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-44" value="" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.github" parent="1" vertex="1">
+          <mxGeometry x="290" y="95" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-45" value="" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.github" parent="1" vertex="1">
+          <mxGeometry x="291" y="227" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GmffOXv_5HLjRrGuA_52-46" value="./alexa-skill/" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="312.33" y="227" width="87.67" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UJLBgcVrnY4HgYjdAnPJ-1" value="Deployed Using" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="475" y="10" width="110" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
