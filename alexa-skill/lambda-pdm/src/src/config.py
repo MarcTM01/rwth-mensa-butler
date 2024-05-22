@@ -14,7 +14,9 @@ class DynamoDBConfig(BaseModel):
 class Config(BaseSettings):
     """The main configuration class for the skill."""
 
-    model_config = SettingsConfigDict(env_nested_delimiter='__', env_file='.env', env_file_encoding='utf-8')
+    model_config = SettingsConfigDict(
+        env_nested_delimiter="__", env_file=".env", env_file_encoding="utf-8"
+    )
     dynamodb_config: DynamoDBConfig
 
 

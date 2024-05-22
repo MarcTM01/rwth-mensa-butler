@@ -19,19 +19,21 @@ class NutritionFlag(str, Enum):
 class MensaMenuExtra(BaseModel):
     """A model for the extra menu items."""
 
-    name: str = Field(alias='Name')
-    description: str = Field(alias='Description')
+    name: str = Field(alias="Name")
+    description: str = Field(alias="Description")
 
 
 class MensaMenu(BaseModel):
     """A model for the menu items."""
 
-    name: str = Field(alias='Name')
-    contents: List[str] = Field(alias='Contents')
-    price: Optional[str] = Field(alias='Price', default=None)
-    nutrition_flags: Set[NutritionFlag] = Field(alias='NutritionFlags', default_factory=set)
+    name: str = Field(alias="Name")
+    contents: List[str] = Field(alias="Contents")
+    price: Optional[str] = Field(alias="Price", default=None)
+    nutrition_flags: Set[NutritionFlag] = Field(
+        alias="NutritionFlags", default_factory=set
+    )
 
-    @field_validator('nutrition_flags', mode='before')
+    @field_validator("nutrition_flags", mode="before")
     def parse_nutrition_flags(cls, value):
         """Parse the nutrition flags from the expected input format to a set of NutritionFlag enums.
 
@@ -49,8 +51,8 @@ class MensaMenu(BaseModel):
 class MensaDayMenus(BaseModel):
     """A model for the dynamodb mensa menu item."""
 
-    date: datetime.date = Field(alias='Date')
-    menus: List[MensaMenu] = Field(alias='Menus')
-    extras: List[MensaMenuExtra] = Field(alias='Extras')
-    mensa_id: str = Field(alias='MensaId')
-    LanguageKey: str = Field(alias='LanguageKey')
+    date: datetime.date = Field(alias="Date")
+    menus: List[MensaMenu] = Field(alias="Menus")
+    extras: List[MensaMenuExtra] = Field(alias="Extras")
+    mensa_id: str = Field(alias="MensaId")
+    LanguageKey: str = Field(alias="LanguageKey")

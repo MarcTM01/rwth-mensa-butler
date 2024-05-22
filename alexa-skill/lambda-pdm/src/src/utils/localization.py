@@ -15,5 +15,8 @@ def build_localized_list(i18n: Callable[[str], str], items: Iterable[str]) -> st
     if len(item_list) == 1:
         return item_list[0]
 
-    return i18n("LIST_SEPERATOR").join(item_list[:-1]) + i18n("LIST_CONJUNCTION") + item_list[-1]
-
+    return (
+        i18n("LIST_SEPERATOR").join(item_list[:-1])
+        + i18n("LIST_CONJUNCTION")
+        + item_list[-1]
+    )

@@ -17,10 +17,10 @@ from src.handler.help_intent_handler import (
 from src.handler.launch_request_handler import (
     LaunchRequestHandler,
 )
-from src.handler.localization_interceptor import LocalizationInterceptor
 from src.handler.session_ended_request_handler import (
     SessionEndedRequestHandler,
 )
+from src.interceptors.localization_interceptor import LocalizationInterceptor
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
