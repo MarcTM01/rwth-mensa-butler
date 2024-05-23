@@ -49,6 +49,70 @@
             "was es {date} in der {mensa} zu essen gibt",
             "was am {date} in der {mensa} auf dem Speiseplan steht"
           ]
+        },
+        {
+          "slots": [
+            {
+              "name": "date",
+              "type": "AMAZON.DATE"
+            },
+            {
+              "name": "mensa",
+              "type": "MensaName"
+            }
+          ],
+          "name": "GetVegetarianMensaOfferingsIntent",
+          "samples": [
+            "was gibt es am {date} in {mensa} vegetarisches zu essen",
+            "was steht am {date} für vegetarisches auf dem Speiseplan in {mensa}",
+            "was steht am {date} in {mensa} für vegetarier auf dem Speiseplan",
+            "welche vegetarischen kulinarischen Genüsse erwarten uns am {date} in {mensa}",
+            "über das vegetarische Menü in {mensa} am {date}",
+            "über die verfügbaren vegetarischen Gerichte in {mensa} am {date}",
+            "für die vegetarische Speiseauswahl in {mensa} am {date}",
+            "was wird am {date} in {mensa} vegetarisches gekocht",
+            "was wird am {date} in {mensa} vegetarisches serviert",
+            "könntest du nach dem vegetarischen Menü in {mensa} am {date} fragen",
+            "für die vegetarischen Angebote am {date} in {mensa}",
+            "was steht am {date} im {mensa} vegetarisches auf dem Speiseplan",
+            "was es am {date} in {mensa} vegetarisches zu essen gibt",
+            "was gibt es am {date} in {mensa} für vegetarische Gerichte",
+            "nach dem {date} vegetarischen Speiseplan der {mensa}",
+            "was es {date} in der {mensa} vegetarisches zu essen gibt",
+            "was am {date} in der {mensa} vegetarisches auf dem Speiseplan steht"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "date",
+              "type": "AMAZON.DATE"
+            },
+            {
+              "name": "mensa",
+              "type": "MensaName"
+            }
+          ],
+          "name": "GetVeganMensaOfferingsIntent",
+          "samples": [
+            "was gibt es am {date} in {mensa} veganes zu essen",
+            "was steht am {date} für veganes auf dem Speiseplan in {mensa}",
+            "was steht am {date} in {mensa} für vegetarier auf dem Speiseplan",
+            "welche veganen kulinarischen Genüsse erwarten uns am {date} in {mensa}",
+            "über das veganen Menü in {mensa} am {date}",
+            "über die verfügbaren veganenen Gerichte in {mensa} am {date}",
+            "für die veganene Speiseauswahl in {mensa} am {date}",
+            "was wird am {date} in {mensa} veganes gekocht",
+            "was wird am {date} in {mensa} veganes serviert",
+            "könntest du nach dem veganen Menü in {mensa} am {date} fragen",
+            "für die veganen Angebote am {date} in {mensa}",
+            "was steht am {date} im {mensa} veganes auf dem Speiseplan",
+            "was es am {date} in {mensa} veganes zu essen gibt",
+            "was gibt es am {date} in {mensa} für vegane Gerichte",
+            "nach dem {date} veganen Speiseplan der {mensa}",
+            "was es {date} in der {mensa} veganes zu essen gibt",
+            "was am {date} in der {mensa} veganes auf dem Speiseplan steht"
+          ]
         }
       ],
       "types": [

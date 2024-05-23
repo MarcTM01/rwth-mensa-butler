@@ -28,7 +28,7 @@ msgid "CANCEL_MESSAGE"
 msgstr "Auf Wiedersehen!"
 
 msgid "ERROR_MESSAGE"
-msgstr "Entschuldigung, ich hatte Probleme mit Ihrer Anfrage. Bitte versuchen Sie es erneut."
+msgstr "Entschuldigung, ich hatte technische Probleme mit Ihrer Anfrage. Bitte versuchen Sie es erneut. Sollte das Problem länger bestehen, erstellen Sie bitte ein Issue auf GitHub."
 
 msgid "HELP_MESSAGE"
 msgstr "Sie können mich nach dem Speiseplan aller Mensen der RWTH Aachen fragen."
@@ -82,6 +82,22 @@ msgstr "Zusätzlich gibt es {0} weitere Gerichte zur Auswahl: {1}."
 
 msgid "ONE_ADDITIONAL_DISH"
 msgstr "Zusätzlich gibt es ein weiteres Gericht zur Auswahl: {0}."
+
+# Filtered dish announcement
+msgid "vegetarian"
+msgstr "vegetarisch"
+
+msgid "vegan"
+msgstr "vegan"
+
+msgid "FILTERED_DISH_ANNOUNCEMENT_NO_DISHES"
+msgstr "Es gibt leider keine {type}en Gerichte in der {mensa} am {date}."
+
+msgid "FILTERED_DISH_ANNOUNCEMENT_ONE_DISH"
+msgstr "Es gibt ein {type}es Gericht in der {mensa} am {date}: {dish}."
+
+msgid "FILTERED_DISH_ANNOUNCEMENT_MULTIPLE_DISHES"
+msgstr "Es gibt {num} {type}e Gerichte in der {mensa} am {date}: {dishes}."
 
 # Annoucement for dish types
 msgid "ANNOUNCEMENT_PREPOSITION_TABLE_DISH"
