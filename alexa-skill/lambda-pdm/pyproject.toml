@@ -19,6 +19,7 @@ license = {text = "MIT"}
 [tool.pdm.scripts]
 lint = "ruff check --fix ."
 format = "ruff format ."
+check-format = "ruff format --check ."
 typecheck = "mypy ./src/"
 test = "pytest tests/"
 

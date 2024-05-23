@@ -6,3 +6,4 @@ docker run --rm -v "$(pwd)":/pwd rlespinasse/drawio-desktop-headless -x --embed-
 
 # Step 2: Inject the darkmode CSS into the SVG file
 awk 'BEGIN{getline l < "darkmode-style-injection.txt"}/<defs\/>/{gsub("<defs/>",l)}1' architecture-orig.svg > architecture.svg
+rm architecture-orig.svg

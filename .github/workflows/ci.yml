@@ -21,6 +21,11 @@ jobs:
         working-directory: ./menu-scrapper-lib
         run: go test -v ./test
 
+      - name: Check if code is formatted using go fmt
+        if: '!cancelled()'
+        working-directory: ./menu-scrapper-lib
+        run: test -z $(gofmt -l .)
+
       - name: Lint code
         if: '!cancelled()'
         uses: golangci/golangci-lint-action@v6
@@ -44,9 +49,72 @@ jobs:
         working-directory: ./menu-scrapper-lambda
         run: go build ./bin/main.go
 
+      - name: Check if code is formatted using go fmt
+        if: '!cancelled()'
+        working-directory: ./menu-scrapper-lambda
+        run: test -z $(gofmt -l .)
+
       - name: Lint code
         if: '!cancelled()'
         uses: golangci/golangci-lint-action@v6
         with:
           working-directory: ./menu-scrapper-lambda
           version: v1.58.1
+  alexa-skill-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: './alexa-skill/lambda-pdm/pyproject.toml'
+
+      - name: Install PDM
+        run: pip install pdm
+
+      - name: Install dependencies
+        working-directory: ./alexa-skill/lambda-pdm
+        run: pdm install
+
+      - name: Run tests
+        working-directory: ./alexa-skill/lambda-pdm
+        run: pdm run test
+
+      - name: Lint code
+        if: '!cancelled()'
+        working-directory: ./alexa-skill/lambda-pdm
+        run: pdm run lint
+
+      - name: Check if code is formatted using ruff
+        if: '!cancelled()'
+        working-directory: ./alexa-skill/lambda-pdm
+        run: pdm run check-format
+
+      - name: Check typing
+        if: '!cancelled()'
+        working-directory: ./alexa-skill/lambda-pdm
+        run: pdm run typecheck
+  sam-app-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup SAM
+        uses: aws-actions/setup-sam@v2
+        with:
+            use-installer: true
+            token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Verify configuration
+        run: sam validate
+
+      - name: Build
+        working-directory: ./sam-app
+        run: sam build --use-container
+  verify-architecture-diagram:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Recompute architecture diagram
+        working-directory: ./docs/architecture
+        run: ./buildSvg.sh
+      - name: Check if architecture diagram is up to date
+        run: git add --all && git diff --exit-code --stat HEAD --
