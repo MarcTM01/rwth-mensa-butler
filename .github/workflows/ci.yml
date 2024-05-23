@@ -104,6 +104,7 @@ jobs:
             use-installer: true
             token: ${{ secrets.GITHUB_TOKEN }}
       - name: Verify configuration
+        working-directory: ./sam-app
         run: sam validate
 
       - name: Build
