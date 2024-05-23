@@ -8,6 +8,7 @@ from src.handler.cancel_intent_handler import (
 from src.handler.catch_all_exception_handler import (
     CatchAllExceptionHandler,
 )
+from src.handler.fallback_intent_handler import FallbackIntentHandler
 from src.handler.get_mensa_offerings_intent_handler import (
     GetMensaOfferingsIntentHandler,
 )
@@ -35,6 +36,7 @@ sb.add_request_handler(LaunchRequestHandler())
 sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(CancelOrStopIntentHandler())
 sb.add_request_handler(SessionEndedRequestHandler())
+sb.add_request_handler(FallbackIntentHandler())
 
 sb.add_request_handler(GetVeganOrVegetarianMensaOfferingsIntentHandler())
 sb.add_request_handler(GetMensaOfferingsIntentHandler())

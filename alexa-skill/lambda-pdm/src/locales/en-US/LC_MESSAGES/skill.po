@@ -31,7 +31,10 @@ msgid "ERROR_MESSAGE"
 msgstr "Sorry, I had technical difficulties doing what you asked. Please try again. If the problem persists, please open an issue on GitHub."
 
 msgid "HELP_MESSAGE"
-msgstr "You can ask me about the cafeteria menu at any of RWTH-Aachen universities mensas"
+msgstr "You can ask me about the menu in all RWTH Aachen canteens. For example, ask me: 'What dishes are served at mensa academica today?' or 'What vegetarian dishes are served at mensa academica tomorrow?'. How can I help you?"
+
+msgid "FALLBACK_MESSAGE"
+msgstr "Sorry, I can't process this request. This may be because I don't yet know your chosen query wording or I don't support the function. If you'd like, feel free to create an issue on GitHub to improve the skill."
 
 msgid "NO_MENSA_SPECIFIED"
 msgstr "I'm sorry, I didn't understand which mensa you were asking about. Please try again."

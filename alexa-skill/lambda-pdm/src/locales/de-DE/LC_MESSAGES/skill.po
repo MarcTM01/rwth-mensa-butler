@@ -28,10 +28,13 @@ msgid "CANCEL_MESSAGE"
 msgstr "Auf Wiedersehen!"
 
 msgid "ERROR_MESSAGE"
-msgstr "Entschuldigung, ich hatte technische Probleme mit Ihrer Anfrage. Bitte versuchen Sie es erneut. Sollte das Problem länger bestehen, erstellen Sie bitte ein Issue auf GitHub."
+msgstr "Entschuldigung, ich hatte technische Probleme mit Ihrer Anfrage. Bitte versuchen Sie es erneut. Sollte das Problem länger bestehen, erstellen Sie bitte ein <lang xml:lang='en-US'>issue</lang> auf <lang xml:lang='en-US'>GitHub</lang>."
 
 msgid "HELP_MESSAGE"
-msgstr "Sie können mich nach dem Speiseplan aller Mensen der RWTH Aachen fragen."
+msgstr "Sie können mich nach dem Speiseplan aller Mensen der RWTH Aachen fragen. Fragen Sie mich zum Beispiel: 'Was gibt es heute in der Mensa Academica?' oder 'Was gibt es morgen für vegetarische Gerichte in der Mensa Ahornstraße?'. Wie kann ich Ihnen helfen?"
+
+msgid "FALLBACK_MESSAGE"
+msgstr "Entschuldigung, ich kann diese Anfrage nicht verarbeiten. Dies kann daran liegen, dass ich Ihre gewählte Anfragenformulierung noch nicht kenne oder ich die Funktion nicht unterstütze. Wenn Sie möchten, können Sie gern ein <lang xml:lang='en-US'>issue</lang> auf <lang xml:lang='en-US'>GitHub</lang> erstellen, um den Skill zu verbessern."
 
 msgid "NO_MENSA_SPECIFIED"
 msgstr "Entschuldigung, ich habe nicht verstanden, nach welcher Mensa Sie gefragt haben. Bitte versuchen Sie es erneut."

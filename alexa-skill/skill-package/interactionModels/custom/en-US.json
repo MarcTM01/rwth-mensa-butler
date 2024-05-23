@@ -19,6 +19,10 @@
           "samples": []
         },
         {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
           "slots": [
             {
               "name": "date",
