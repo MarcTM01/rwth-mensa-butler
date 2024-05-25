@@ -31,6 +31,9 @@ echo "Compiling language files"
 echo "Updating skill-package"
 rsync -a -v --delete-after skill-package/interactionModels/ "$TARGET_DIRECTORY/skill-package/interactionModels/"
 
+echo "Building skill.json"
+envsubst < skill-package/skill.json > "$TARGET_DIRECTORY/skill-package/skill.json"
+
 if [ "$#" -eq 2 ] && [ "$2" == "commit" ]; then
   echo "Commiting changes"
   (cd "$TARGET_DIRECTORY" && git add lambda skill-package && git commit -m "Update lambda source code and requirements.txt" && git push)
