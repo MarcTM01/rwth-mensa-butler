@@ -12,7 +12,7 @@ from ask_sdk_model import Response
 from src.data import dynamodb
 from src.data.mensas import Mensa
 from src.data.menu_model import MensaDayMenus
-from src.utils import alexa_slots, localization
+from src.utils import alexa_slots
 from src.utils.localization import I18nFunction
 
 
@@ -27,14 +27,6 @@ def _require_exactly_one_mensa_specified(
     mensas = alexa_slots.get_mensas_from_slot(handler_input, "mensa")
     if mensas is None or len(mensas) == 0:
         return handler_input.response_builder.speak(_("NO_MENSA_SPECIFIED")).response
-
-    if len(mensas) != 1:
-        mensa_names = map(lambda mensa_obj: _(mensa_obj.mensaId), mensas)
-        return handler_input.response_builder.speak(
-            _("MULTIPLE_MENSAS_SPECIFIED").format(
-                localization.build_localized_list(_, mensa_names)
-            )
-        ).response
 
     mensa = next(iter(mensas))
     return mensa

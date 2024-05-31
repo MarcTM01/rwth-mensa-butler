@@ -58,9 +58,13 @@
             {
               "name": "mensa",
               "type": "MensaName"
+            },
+            {
+              "name": "dishType",
+              "type": "MensaDishType"
             }
           ],
-          "name": "GetVegetarianMensaOfferingsIntent",
+          "name": "GetFilteredMensaOfferingsIntentHandler",
           "samples": [
             "what\u0027s on {date} vegetarian menu at {mensa}",
             "what\u0027s on the vegetarian menu {date} at {mensa}",
@@ -73,34 +77,9 @@
             "what vegetarian options they\u0027re serving at {mensa} {date}",
             "could you inquire about the vegetarian menu at {mensa} for {date}",
             "for {date} vegetarian offerings at {mensa}",
-            "what\u0027s on the vegetarian menu at {mensa} for {date}"
-          ]
-        },
-        {
-          "slots": [
-            {
-              "name": "date",
-              "type": "AMAZON.DATE"
-            },
-            {
-              "name": "mensa",
-              "type": "MensaName"
-            }
-          ],
-          "name": "GetVegeanMensaOfferingsIntent",
-          "samples": [
-            "what\u0027s on {date} vegan menu at {mensa}",
-            "what\u0027s on the vegan menu {date} at {mensa}",
-            "what\u0027s on the vegan menu at {mensa} {date}",
-            "what vegan culinary delights await at {mensa} for {date}",
-            "about {mensa} s vegan menu for {date}",
-            "about the vegan dishes available at {mensa} for {date}",
-            "for the vegan menu lineup at {mensa} for {date}",
-            "what vegan dishes are cooking at {mensa} on {date}",
-            "what vegan options they\u0027re serving at {mensa} {date}",
-            "could you inquire about the vegan menu at {mensa} for {date}",
-            "for {date} vegan offerings at {mensa}",
-            "what\u0027s on the vegan menu at {mensa} for {date}"
+            "what\u0027s on the vegetarian menu at {mensa} for {date}",
+            "what\u0027s the {dishType} dish at {mensa} for {date}",
+            "what {dishType} are offered at {mensa} {date}"
           ]
         }
       ],
@@ -193,6 +172,85 @@
             }
           ],
           "name": "MensaName"
+        },{
+          "values": [
+            {
+              "name": {
+                "synonyms": [
+                  "vegetarian dishes",
+                  "veggie",
+                  "vegetarian food"
+                ],
+                "value": "vegetarian"
+              },
+              "id": "VEGETARIAN"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "vegan dishes",
+                  "vegan food"
+                ],
+                "value": "vegan"
+              },
+              "id": "VEGAN"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "classical dish"
+                ],
+                "value": "classics"
+              },
+              "id": "CLASSICS"
+            },
+            {
+              "name": {
+                "synonyms": [],
+                "value": "pasta"
+              },
+              "id": "PASTA"
+            },
+            {
+              "name": {
+                "synonyms": [],
+                "value": "wok"
+              },
+              "id": "WOK"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Pizzas",
+                  "Pizza of the day",
+                  "Pizza classics"
+                ],
+                "value": "Pizza"
+              },
+              "id": "PIZZA"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Burger classics",
+                  "Burger of the week"
+                ],
+                "value": "Burger"
+              },
+              "id": "BURGER"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "soup",
+                  "vegetarian table dish"
+                ],
+                "value": "able dish"
+              },
+              "id": "TABLE_DISH"
+            }
+          ],
+          "name": "MensaDishType"
         }
       ],
       "invocationName": "r. w. t. h. mensa"

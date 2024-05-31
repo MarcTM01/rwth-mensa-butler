@@ -39,8 +39,8 @@ msgstr "Sorry, I can't process this request. This may be because I don't yet kno
 msgid "NO_MENSA_SPECIFIED"
 msgstr "I'm sorry, I didn't understand which mensa you were asking about. Please try again."
 
-msgid "MULTIPLE_MENSAS_SPECIFIED"
-msgstr "Please specify exactly one mensa. I could not decide between {0}. Do Please try again."
+msgid "NO_DISH_TYPE_SPECIFIED"
+msgstr "I'm sorry, I didn't understand which dish you were asking about. Please try again."
 
 msgid "NO_DATE_SPECIFIED"
 msgstr "I'm sorry, I didn't understand which date you were asking about. Please try again."
@@ -94,13 +94,13 @@ msgid "vegan"
 msgstr "vegan"
 
 msgid "FILTERED_DISH_ANNOUNCEMENT_NO_DISHES"
-msgstr "Unfortunately, no {type} dishes are offered at {mensa} on {date}."
+msgstr "Unfortunately, no {type} are offered at {mensa} on {date}."
 
 msgid "FILTERED_DISH_ANNOUNCEMENT_ONE_DISH"
-msgstr "There is one {type} dish offered at {mensa} on {date}: {dish}."
+msgstr "There is one {type} offered at {mensa} on {date}: {dish}."
 
 msgid "FILTERED_DISH_ANNOUNCEMENT_MULTIPLE_DISHES"
-msgstr "There are {num} {type} dishes to choose from at {mensa} on {date}: {dishes}."
+msgstr "There are {num} {type} to choose from at {mensa} on {date}: {dishes}."
 
 # Annoucement for dish types
 msgid "ANNOUNCEMENT_PREPOSITION_TABLE_DISH"
@@ -192,3 +192,52 @@ msgstr "Saturday"
 
 msgid "DAY_6"
 msgstr "Sunday"
+
+# Dish Type Filter
+msgid "FILTER_VEGETARIAN_SINGLE"
+msgstr "vegetarian dish"
+
+msgid "FILTER_VEGETARIAN_PLURAL"
+msgstr "vegetarian dishes"
+
+msgid "FILTER_VEGAN_SINGLE"
+msgstr "vegan dish"
+
+msgid "FILTER_VEGAN_PLURAL"
+msgstr "vegan dishes"
+
+msgid "FILTER_CLASSICS_SINGLE"
+msgstr "classical dish"
+
+msgid "FILTER_CLASSICS_PLURAL"
+msgstr "classical dishes"
+
+msgid "FILTER_PASTA_SINGLE"
+msgstr "pasta dish"
+
+msgid "FILTER_PASTA_PLURAL"
+msgstr "pasta dishes"
+
+msgid "FILTER_WOK_SINGLE"
+msgstr "Wok dish"
+
+msgid "FILTER_WOK_PLURAL"
+msgstr "Wok dishes"
+
+msgid "FILTER_PIZZA_SINGLE"
+msgstr "Pizza"
+
+msgid "FILTER_PIZZA_PLURAL"
+msgstr "Pizzas"
+
+msgid "FILTER_BURGER_SINGLE"
+msgstr "Burger"
+
+msgid "FILTER_BURGER_PLURAL"
+msgstr "Burgers"
+
+msgid "FILTER_TABLE_DISH_SINGLE"
+msgstr "Table dish"
+
+msgid "FILTER_TABLE_DISH_PLURAL"
+msgstr "Table dishes"

@@ -63,59 +63,34 @@
             {
               "name": "mensa",
               "type": "MensaName"
-            }
-          ],
-          "name": "GetVegetarianMensaOfferingsIntent",
-          "samples": [
-            "was gibt es am {date} in {mensa} vegetarisches zu essen",
-            "was steht am {date} für vegetarisches auf dem Speiseplan in {mensa}",
-            "was steht am {date} in {mensa} für vegetarier auf dem Speiseplan",
-            "welche vegetarischen kulinarischen Genüsse erwarten uns am {date} in {mensa}",
-            "über das vegetarische Menü in {mensa} am {date}",
-            "über die verfügbaren vegetarischen Gerichte in {mensa} am {date}",
-            "für die vegetarische Speiseauswahl in {mensa} am {date}",
-            "was wird am {date} in {mensa} vegetarisches gekocht",
-            "was wird am {date} in {mensa} vegetarisches serviert",
-            "könntest du nach dem vegetarischen Menü in {mensa} am {date} fragen",
-            "für die vegetarischen Angebote am {date} in {mensa}",
-            "was steht am {date} im {mensa} vegetarisches auf dem Speiseplan",
-            "was es am {date} in {mensa} vegetarisches zu essen gibt",
-            "was gibt es am {date} in {mensa} für vegetarische Gerichte",
-            "nach dem {date} vegetarischen Speiseplan der {mensa}",
-            "was es {date} in der {mensa} vegetarisches zu essen gibt",
-            "was am {date} in der {mensa} vegetarisches auf dem Speiseplan steht"
-          ]
-        },
-        {
-          "slots": [
-            {
-              "name": "date",
-              "type": "AMAZON.DATE"
             },
             {
-              "name": "mensa",
-              "type": "MensaName"
+              "name": "dishType",
+              "type": "MensaDishType"
             }
           ],
-          "name": "GetVeganMensaOfferingsIntent",
+          "name": "GetFilteredMensaOfferingsIntentHandler",
           "samples": [
-            "was gibt es am {date} in {mensa} veganes zu essen",
-            "was steht am {date} für veganes auf dem Speiseplan in {mensa}",
-            "was steht am {date} in {mensa} für vegetarier auf dem Speiseplan",
-            "welche veganen kulinarischen Genüsse erwarten uns am {date} in {mensa}",
-            "über das veganen Menü in {mensa} am {date}",
-            "über die verfügbaren veganenen Gerichte in {mensa} am {date}",
-            "für die veganene Speiseauswahl in {mensa} am {date}",
-            "was wird am {date} in {mensa} veganes gekocht",
-            "was wird am {date} in {mensa} veganes serviert",
-            "könntest du nach dem veganen Menü in {mensa} am {date} fragen",
-            "für die veganen Angebote am {date} in {mensa}",
-            "was steht am {date} im {mensa} veganes auf dem Speiseplan",
-            "was es am {date} in {mensa} veganes zu essen gibt",
-            "was gibt es am {date} in {mensa} für vegane Gerichte",
-            "nach dem {date} veganen Speiseplan der {mensa}",
-            "was es {date} in der {mensa} veganes zu essen gibt",
-            "was am {date} in der {mensa} veganes auf dem Speiseplan steht"
+            "was gibt es am {date} in {mensa} {dishType} zu essen",
+            "was steht am {date} für {dishType} auf dem Speiseplan in {mensa}",
+            "was steht am {date} in {mensa} für {dishType} auf dem Speiseplan",
+            "welche {dishType} kulinarischen Genüsse erwarten uns am {date} in {mensa}",
+            "welche {dishType} gerichte es am {date} in {mensa} gibt",
+            "über das {dishType} Menü in {mensa} am {date}",
+            "über die verfügbaren {dishType} Gerichte in {mensa} am {date}",
+            "für die {dishType} Speiseauswahl in {mensa} am {date}",
+            "was wird am {date} in {mensa} {dishType} gekocht",
+            "was wird am {date} in {mensa} {dishType} serviert",
+            "könntest du nach dem {dishType} Menü in {mensa} am {date} fragen",
+            "für die {dishType} Angebote am {date} in {mensa}",
+            "was steht am {date} im {mensa} {dishType} auf dem Speiseplan",
+            "was es am {date} in {mensa} {dishType} zu essen gibt",
+            "was gibt es am {date} in {mensa} für {dishType} Gerichte",
+            "nach dem {date} {dishType} Speiseplan der {mensa}",
+            "was es {date} in der {mensa} {dishType} zu essen gibt",
+            "was am {date} in der {mensa} {dishType} auf dem Speiseplan steht",
+            "was es am {date} in der {mensa} im {dishType} gibt",
+            "was es für {dishType} am {date} in der {mensa} gibt"
           ]
         }
       ],
@@ -210,6 +185,91 @@
             }
           ],
           "name": "MensaName"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "synonyms": [
+                  "vegetarische Gerichte",
+                  "vegetarische Speisen",
+                  "vegetarisches"
+                ],
+                "value": "vegetarisch"
+              },
+              "id": "VEGETARIAN"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "vegane Gerichte",
+                  "vegane Speisen",
+                  "veganes"
+                ],
+                "value": "vegan"
+              },
+              "id": "VEGAN"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "klassisches Gericht"
+                ],
+                "value": "klassiker"
+              },
+              "id": "CLASSICS"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Nudelgericht"
+                ],
+                "value": "pasta"
+              },
+              "id": "PASTA"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Wokgericht"
+                ],
+                "value": "wok"
+              },
+              "id": "WOK"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Pizzen",
+                  "Pizza des tages",
+                  "Pizza classics"
+                ],
+                "value": "Pizza"
+              },
+              "id": "PIZZA"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Burger classics",
+                  "Burger der Woche"
+                ],
+                "value": "Burger"
+              },
+              "id": "BURGER"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Suppe",
+                  "Vegetarisches Tellergericht"
+                ],
+                "value": "Tellergericht"
+              },
+              "id": "TABLE_DISH"
+            }
+          ],
+          "name": "MensaDishType"
         }
       ],
       "invocationName": "r. w. t. h. mensa"

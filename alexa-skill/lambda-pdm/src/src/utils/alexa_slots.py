@@ -16,7 +16,7 @@ def get_mensas_from_slot(
     :param slot_name: The name of the slot
     :return: The mensa(s) that were found in the slot or None if no mensa was found
     """
-    identified_slot_ids = _get_slot_ids_from_custom_slot(handler_input, slot_name)
+    identified_slot_ids = get_slot_ids_from_custom_slot(handler_input, slot_name)
     if identified_slot_ids is None:
         return None
 
@@ -53,7 +53,7 @@ def get_date_from_slot(
     return parsed_date.date()
 
 
-def _get_slot_ids_from_custom_slot(
+def get_slot_ids_from_custom_slot(
     handler_input: HandlerInput, slot_name: str
 ) -> Optional[Set[str]]:
     """Get the slot IDs from the custom slot.

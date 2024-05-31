@@ -39,8 +39,8 @@ msgstr "Entschuldigung, ich kann diese Anfrage nicht verarbeiten. Dies kann dara
 msgid "NO_MENSA_SPECIFIED"
 msgstr "Entschuldigung, ich habe nicht verstanden, nach welcher Mensa Sie gefragt haben. Bitte versuchen Sie es erneut."
 
-msgid "MULTIPLE_MENSAS_SPECIFIED"
-msgstr "Bitte geben Sie genau eine Mensa an. Ich konnte mich nicht zwischen {0} entscheiden. Bitte versuchen Sie es erneut."
+msgid "NO_DISH_TYPE_SPECIFIED"
+msgstr "Entschuldigung, ich habe nicht verstanden, nach welchem Gericht Sie gefragt haben. Bitte versuchen Sie es erneut."
 
 msgid "NO_DATE_SPECIFIED"
 msgstr "Entschuldigung, ich habe nicht verstanden, nach welchem Datum Sie gefragt haben. Bitte versuchen Sie es erneut."
@@ -94,13 +94,13 @@ msgid "vegan"
 msgstr "vegan"
 
 msgid "FILTERED_DISH_ANNOUNCEMENT_NO_DISHES"
-msgstr "Es gibt leider keine {type}en Gerichte in der {mensa} am {date}."
+msgstr "Es gibt leider keine {type} in der {mensa} am {date}."
 
 msgid "FILTERED_DISH_ANNOUNCEMENT_ONE_DISH"
-msgstr "Es gibt ein {type}es Gericht in der {mensa} am {date}: {dish}."
+msgstr "Es gibt ein {type} in der {mensa} am {date}: {dish}."
 
 msgid "FILTERED_DISH_ANNOUNCEMENT_MULTIPLE_DISHES"
-msgstr "Es gibt {num} {type}e Gerichte in der {mensa} am {date}: {dishes}."
+msgstr "Es gibt {num} {type} in der {mensa} am {date}: {dishes}."
 
 # Annoucement for dish types
 msgid "ANNOUNCEMENT_PREPOSITION_TABLE_DISH"
@@ -193,3 +193,51 @@ msgstr "Samstag"
 msgid "DAY_6"
 msgstr "Sonntag"
 
+# Dish Type Filter
+msgid "FILTER_VEGETARIAN_SINGLE"
+msgstr "vegetarisches Gericht"
+
+msgid "FILTER_VEGETARIAN_PLURAL"
+msgstr "vegetarische Gerichte"
+
+msgid "FILTER_VEGAN_SINGLE"
+msgstr "veganes Gericht"
+
+msgid "FILTER_VEGAN_PLURAL"
+msgstr "vegane Gerichte"
+
+msgid "FILTER_CLASSICS_SINGLE"
+msgstr "Klassiker"
+
+msgid "FILTER_CLASSICS_PLURAL"
+msgstr "Klassiker"
+
+msgid "FILTER_PASTA_SINGLE"
+msgstr "Nudelgericht"
+
+msgid "FILTER_PASTA_PLURAL"
+msgstr "Nudelgerichte"
+
+msgid "FILTER_WOK_SINGLE"
+msgstr "Wokgericht"
+
+msgid "FILTER_WOK_PLURAL"
+msgstr "Wokgerichte"
+
+msgid "FILTER_PIZZA_SINGLE"
+msgstr "Pizza"
+
+msgid "FILTER_PIZZA_PLURAL"
+msgstr "Pizzen"
+
+msgid "FILTER_BURGER_SINGLE"
+msgstr "Burger"
+
+msgid "FILTER_BURGER_PLURAL"
+msgstr "Burger"
+
+msgid "FILTER_TABLE_DISH_SINGLE"
+msgstr "Tellergericht"
+
+msgid "FILTER_TABLE_DISH_PLURAL"
+msgstr "Tellergerichte"
