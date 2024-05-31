@@ -13,6 +13,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
 	"log"
 	"os"
+	"strings"
 )
 
 var (
@@ -89,16 +90,16 @@ func retrieveAndStoreOfferingsForMensaUrl(mensaId string, languageKey string, ur
 	return response
 }
 
-func retrieveAndStoreOfferingsForMensa(mensa model.MensaConfiguration) Response {
+func retrieveAndStoreOfferingsForMensa(mensa model.MensaConfiguration, baseurl string) Response {
 	response := Response{
 		Success:  true,
 		Messages: []string{},
 	}
 
-	responseDe := retrieveAndStoreOfferingsForMensaUrl(mensa.MensaId, "de", mensa.Urls.GermanUrl)
+	responseDe := retrieveAndStoreOfferingsForMensaUrl(mensa.MensaId, "de", strings.Replace(mensa.Urls.GermanUrl, "{BASE_URL}", baseurl, -1))
 	response.Merge(&responseDe)
 
-	responseEn := retrieveAndStoreOfferingsForMensaUrl(mensa.MensaId, "en", mensa.Urls.EnglishUrl)
+	responseEn := retrieveAndStoreOfferingsForMensaUrl(mensa.MensaId, "en", strings.Replace(mensa.Urls.EnglishUrl, "{BASE_URL}", baseurl, -1))
 	response.Merge(&responseEn)
 
 	return response
@@ -110,8 +111,13 @@ func handler() (*Response, error) {
 		Messages: []string{},
 	}
 
+	baseUrl := scrapConfigurations.BaseUrl
+	if environmentName == "localdev" {
+		baseUrl = "http://host.docker.internal:8081"
+	}
+
 	for _, mensa := range scrapConfigurations.MensaConfigurations {
-		mensaResponse := retrieveAndStoreOfferingsForMensa(mensa)
+		mensaResponse := retrieveAndStoreOfferingsForMensa(mensa, baseUrl)
 		response.Merge(&mensaResponse)
 	}
 

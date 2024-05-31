@@ -21,11 +21,11 @@ Parameters:
         Default: MensaOfferings
     ENVIRONMENTNAME:
         Type: String
-        Description: Environment Name (prod, localdev)
+        Description: Environment Name (prod, localdev). In localdev mode the function will use the local dynamoDB instance
         Default: prod
     ALEXASKILLARN:
         Type: String
-        Description: ARN of the Alexa Skill
+        Description: ARN of the Alexa Skill. Used for granting access to the DynamoDB Table
 
 Resources:
   MensaOfferingsTable:

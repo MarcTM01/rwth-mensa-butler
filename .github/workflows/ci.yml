@@ -110,6 +110,16 @@ jobs:
       - name: Build
         working-directory: ./sam-app
         run: sam build --use-container
+
+      - name: Integration test
+        working-directory: ./sam-app
+        run: ./performLocalIntegrationTest.sh
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: sam-integration-testing-artifacts
+          path: sam-app/testing_artifacts
   verify-architecture-diagram:
     runs-on: ubuntu-latest
     steps:

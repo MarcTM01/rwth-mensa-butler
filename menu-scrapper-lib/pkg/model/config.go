@@ -1,6 +1,7 @@
 package model
 
 type ApplicationConfiguration struct {
+	BaseUrl             string               `mapstructure:"base_url"`
 	MensaConfigurations []MensaConfiguration `mapstructure:"mensas"`
 }
 
