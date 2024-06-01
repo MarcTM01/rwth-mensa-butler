@@ -2,7 +2,7 @@
 set -euxo pipefail
 echo "Starting local dynamodb instance"
 docker compose down -v
-docker compose up -d --build
+docker compose up -d --build --wait
 
 invoke_dynamodb() {
   AWS_ACCESS_KEY_ID=something AWS_SECRET_ACCESS_KEY=different AWS_DEFAULT_REGION=localhost aws dynamodb "$1" \

@@ -5,6 +5,14 @@ services:
         ports:
         - "8000:8000"
         command: "-jar DynamoDBLocal.jar -sharedDb"
+        healthcheck:
+            #The service is considered healthy if it responds with a 400 status code
+            test: [
+                "CMD-SHELL",
+                'if [ "$(curl -s -o /dev/null -I -w ''%{http_code}'' http://localhost:8000)" == "400" ]; then exit 0; else exit 1; fi', ]
+            interval: 1s
+            timeout: 10s
+            retries: 3
     webhost:
         build: ./rwth-mensa-dummy
         ports:
