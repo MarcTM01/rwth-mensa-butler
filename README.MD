@@ -13,17 +13,35 @@ Then this is the solution for you!
 > The Studierendenwerk Aachen will not answer any queries regarding this software.
 
 ## :rocket: Sounds great! How do I use it?
-Currently, the skill is not published on the Alexa Skill Store. More helpful instructions will be provided soon.
+Currently, the skill is in beta testing and not (yet) publicly available on the Alexa Skill Store.
+If you want to test the skill, please contact [me](mailto:marc@MarcTM01.dev) with the email address of your amazon account and I will add you to the beta testers.
 
-## :dart: Current and future Features
-- [X] Get the menu for any mensa of RWTH Aachen University for specific days, including past days (`What's on the menu at mensa vita next monday?`)
-- [X] Get probable reasons for data being unavailable (`I don't have any menu data for mensa vita on 2024-05-30. But this is not surprising, as this is a public holiday in northrhine westphalia.`)
-- [X] Architecture diagram svg supports automated color-inversion for dark mode users
-- [X] Multi-Language Support (Currently supported: :uk:, :de:)
-- [X] Get all vegetarian or vegan dishes for a specific day (`What vegetarian dishes are offered at bistro templergraben tomorrow?`)
-- [ ] Inquire about specific dishes (`What burgers are offered at mensa academica today?`)
-- [ ] Get prices for specific dishes (`How much does the pizza at mensa academica cost?`)
+## :dart: Features
+- [X] Architecture diagram SVG supports automated color-inversion for dark mode users
+- [X] Multi-Language Support ( :uk:, :de: )
+- [X] Get the menu for any mensa of RWTH Aachen University for specific days, including past days
+
+> User:&nbsp;Alexa, ask RWTH Mensa what's on the menu at mensa vita next monday
+>
+> Alexa:&nbsp; The vegetarian dish has Cauliflower nuggets with Aioli. The classical dish (...). As a side dish, you can choose from: (...). Additionally, there are 4 other dishes to choose from: (...).
+
+- [X] Get probable reasons for data being unavailable
+> User:&nbsp;Alexa, ask RWTH Mensa what's on the menu at mensa academica on 2024-05-30
+>
+> Alexa:&nbsp;I'm sorry, I don't have any menu data for Mensa Academica at 2024-05-30. But this is not surprising as 2024-05-30 is a public holiday in northrhine westphalia.
+
+- [X] Get all vegetarian or vegan dishes for a specific day
+> User:&nbsp;Alexa, ask RWTH Mensa what vegetarian dishes are offered at mensa ahornstraße next thursday
+>
+> Alexa:&nbsp;There are 2 vegetarian dishes to choose from at Mensa Ahornstraße: The vegetarian table dish has (...). The vegetarian dish has (...).
+
+- [X] Inquire about specific dish types (Supported: Classical dish, Table dish, Pizza, Burger, Wok, Pasta)
+> User:&nbsp;Alexa, ask RWTH Mensa what burgers are offered at mensa academica next thursday
+>
+> Alexa:&nbsp;There are 3 Burger to choose from at Mensa Academica: The classical burger is (...).
+
 - [ ] Get a list of all mensas (`Which mensas are there?`)
+- [ ] (Maybe) Get prices for specific dishes (`How much does the pizza at mensa academica cost?`)
 - [ ] (Maybe) Get the opening hours of a mensa (`When does mensa academica close today?`)
 
 ## :gear: Architecture

@@ -31,8 +31,9 @@ echo "Compiling language files"
 echo "Updating skill-package"
 rsync -a -v --delete-after skill-package/interactionModels/ "$TARGET_DIRECTORY/skill-package/interactionModels/"
 
-echo "Building skill.json"
+echo "Building skill.json and .env"
 envsubst < skill-package/skill.json > "$TARGET_DIRECTORY/skill-package/skill.json"
+envsubst < lambda-pdm/src/.env.template > "$TARGET_DIRECTORY/lambda/.env"
 
 if [ "$#" -eq 2 ] && [ "$2" == "commit" ]; then
   echo "Commiting changes"

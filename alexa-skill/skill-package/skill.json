@@ -6,7 +6,7 @@
           "summary": "Was gibt es in der Mensa der RWTH? Finde es mit diesem Skill heraus!",
           "examplePhrases": [
             "Alexa, frage r. w. t. h. mensa was es heute in der Mensa Academica zu essen gibt",
-            "Alexa, frage r. w. t. h. mensa was es nächsten Donnerstag in der Mensa Vita zu essen gibt",
+            "Alexa, frage r. w. t. h. mensa was es nächsten Donnerstag in der Mensa Vita für vegetarische Gerichte gibt",
             "Alexa, öffne r. w. t. h. mensa"
           ],
           "keywords": [
@@ -24,8 +24,8 @@
         "en-US": {
           "summary": "Want to know what\u0027s on todays menu at any of the canteens of RWTH Aachen University? Find out using this skill!",
           "examplePhrases": [
-            "Alexa, ask r. w. t. h. mensa what\u0027s on todays menu at mensa academica.",
-            "Alexa, ask r. w. t. h. mensa about the dishes available at mensa vita on next thursday",
+            "Alexa, ask r. w. t. h. mensa what\u0027s on the menu today at mensa academica.",
+            "Alexa, ask r. w. t. h. mensa about the vegetarian dishes available at mensa vita on next thursday",
             "Alexa, open r. w. t. h. mensa"
           ],
           "keywords": [
