@@ -14,7 +14,7 @@ Then this is the solution for you!
 
 ## :rocket: Sounds great! How do I use it?
 Currently, the skill is in beta testing and not (yet) publicly available on the Alexa Skill Store.
-If you want to test the skill, please contact [me](mailto:marc@MarcTM01.dev) with the email address of your amazon account and I will add you to the beta testers.
+If you want to test the skill, please contact [me](https://docs.google.com/forms/d/e/1FAIpQLSczAe7D_cWIlXT1yvTUs6kz9V3b0e0K09FurG_6q3rKmVddKw/viewform?usp=sf_link) with the email address of your amazon account and I will add you to the beta testers.
 
 ## :dart: Features
 - [X] Architecture diagram SVG supports automated color-inversion for dark mode users
@@ -65,3 +65,8 @@ Accessing the database directly does not incur any cost as the always-free tier 
 
 **A:** The scrapper is written in go primarily because I wanted to learn go.
 At the time of creation, amazon does not support the creation of alexa-hosted skills in go. Therefore, I went with python for the skill lambda.
+
+
+**Q:** Why is there no CD pipeline for the skill?
+
+**A**: As this repository is public, all GitHub Actions log files are public as well. Considering that even just the name of a private S3 bucket can be used to introduce expenses (see https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1) I do not feel comfortable running a public CD pipeline for this skill.
