@@ -2,5 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ]
+  ],
+  "labels": ["dependencies"],
+  "ignoreDeps": [ "github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib" ]
 }
