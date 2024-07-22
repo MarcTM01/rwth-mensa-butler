@@ -30,6 +30,7 @@ echo "Compiling language files"
 
 echo "Updating skill-package"
 rsync -a -v --delete-after skill-package/interactionModels/ "$TARGET_DIRECTORY/skill-package/interactionModels/"
+rsync -a -v --delete-after skill-package/assets/ "$TARGET_DIRECTORY/skill-package/assets/"
 
 echo "Building skill.json and .env"
 envsubst < skill-package/skill.json > "$TARGET_DIRECTORY/skill-package/skill.json"
