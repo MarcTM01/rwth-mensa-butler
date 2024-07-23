@@ -1,3 +1,5 @@
+"""Defines an abstract handler that abstracts some i18n logic."""
+
 import abc
 from typing import cast
 
@@ -22,4 +24,3 @@ class I18nRequestHandler(AbstractRequestHandler, abc.ABC):
     @abc.abstractmethod
     def handle_i18n(self, handler_input: HandlerInput, i18n: I18nFunction) -> Response:
         """Handle the request to produce a response."""
-        pass

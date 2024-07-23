@@ -1,3 +1,5 @@
+"""Defines a CancelIntent and StopIntent handler."""
+
 import ask_sdk_core.utils as ask_utils
 from ask_sdk_core.handler_input import HandlerInput
 from ask_sdk_model import Response
@@ -10,13 +12,13 @@ class CancelOrStopIntentHandler(I18nRequestHandler):
     """Single handler for Cancel and Stop Intent."""
 
     def can_handle(self, handler_input: HandlerInput) -> bool:
-        """Overwritten."""
+        """Accepts all CancelIntent and StopIntent objects."""
         return ask_utils.is_intent_name("AMAZON.CancelIntent")(
             handler_input
         ) or ask_utils.is_intent_name("AMAZON.StopIntent")(handler_input)
 
     def handle_i18n(self, handler_input: HandlerInput, i18n: I18nFunction) -> Response:
-        """Overwritten."""
+        """Responds with a 'Goodbye!' message."""
         speak_output = i18n("CANCEL_MESSAGE")
 
         return handler_input.response_builder.speak(speak_output).response

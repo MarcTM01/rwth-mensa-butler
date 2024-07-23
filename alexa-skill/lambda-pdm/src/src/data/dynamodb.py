@@ -1,3 +1,5 @@
+"""Defines functions for accessing dynamodb data."""
+
 from typing import TYPE_CHECKING
 
 import boto3
@@ -14,8 +16,7 @@ def __assume_aws_role() -> dict:
         RoleArn=config.dynamodb_config.assume_role_arn,
         RoleSessionName=config.dynamodb_config.assume_role_session_name,
     )
-    credentials = assumed_role_object["Credentials"]
-    return credentials
+    return assumed_role_object["Credentials"]
 
 
 def get_dynamodb_table() -> "Table":
@@ -30,5 +31,4 @@ def get_dynamodb_table() -> "Table":
         region_name=config.dynamodb_config.region,
     )
 
-    table = dynamodb.Table(config.dynamodb_config.table_name)
-    return table
+    return dynamodb.Table(config.dynamodb_config.table_name)

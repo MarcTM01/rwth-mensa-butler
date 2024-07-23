@@ -1,3 +1,5 @@
+"""Defines a Catch-All Exception handler."""
+
 import logging
 from typing import cast
 
@@ -16,17 +18,18 @@ logger.setLevel(logging.INFO)
 class CatchAllExceptionHandler(AbstractExceptionHandler):
     """Captures syntax or routing errors.
 
-    Generic error handling to capture any syntax or routing errors. If you receive an error
-    stating the request handler chain is not found, you have not implemented a handler for
-    the intent being invoked or included it in the skill builder below.
+    Generic error handling to capture any syntax or routing errors.
+    If you receive an error stating the request handler chain is not found,
+    you have not implemented a handler for the intent being invoked or included
+    it in the skill builder below.
     """
 
-    def can_handle(self, handler_input: HandlerInput, exception: Exception) -> bool:
-        """Overwritten."""
+    def can_handle(self, handler_input: HandlerInput, exception: Exception) -> bool:  # noqa: ARG002
+        """Accepts anything."""
         return True
 
     def handle(self, handler_input: HandlerInput, exception: Exception) -> Response:
-        """Overwritten."""
+        """Informs the user about the failure."""
         logger.error(exception, exc_info=True)
 
         i18n = cast(

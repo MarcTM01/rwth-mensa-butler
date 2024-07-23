@@ -1,11 +1,19 @@
-import datetime
+"""Defines the models for the menu-data as retrieved from DynamoDB."""
+
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    import datetime
+
+    from src.utils.localization import I18nFunction
+
 from enum import Enum
-from typing import List, Optional, Set
 
 from pydantic import BaseModel, Field, field_validator
 
 from src.utils import localization
-from src.utils.localization import I18nFunction
 
 
 class NutritionFlag(str, Enum):
@@ -30,60 +38,57 @@ class MensaMenu(BaseModel):
     """A model for the menu items."""
 
     name: str = Field(alias="Name")
-    contents: List[str] = Field(alias="Contents")
-    price: Optional[str] = Field(alias="Price", default=None)
-    nutrition_flags: Set[NutritionFlag] = Field(
+    contents: list[str] = Field(alias="Contents")
+    price: str | None = Field(alias="Price", default=None)
+    nutrition_flags: set[NutritionFlag] = Field(
         alias="NutritionFlags", default_factory=set
     )
 
     @property
-    def dish_type(self) -> "DishType":
+    def dish_type(self) -> DishType:
         """Get the dish type of the menu item."""
         return DishType.from_name(self.name)
 
     @property
     def empty(self) -> bool:
+        """Checks if the item is empty.
+
+        Sometimes the website of the cafeteria publishes
+        empty items (for whatever reason).
+
+        Additionally, items that become unavailable (e.g., "closed")
+        are also considered empty.
+        """
         contents_combined = "".join(self.contents).strip()
         if len(contents_combined) <= 1:
             return True
-        if (
+        return (
             contents_combined.lower() == "closed"
             or contents_combined.lower() == "geschlossen"
-        ):
-            return True
-        return False
+        )
 
     def generate_content_announcement(self, i18n: I18nFunction) -> str:
-        """Generate the announcement string for the menu item.
-
-        :param i18n: The translation function
-        :return: The announcement string
-        """
+        """Generate the announcement string for the menu item."""
         if len(self.contents) == 0:
             return i18n("DISH_CONTENT_EMPTY")
-        elif len(self.contents) == 1:
+        if len(self.contents) == 1:
             return self.contents[0]
-        else:
-            return (
-                self.contents[0]
-                + i18n("DISH_CONTENT_PRIMARY_SECONDARY_BARRIER")
-                + i18n("DISH_CONTENT_FURTHER_CONJUNCTION").join(self.contents[1:])
-            )
+        return (
+            self.contents[0]
+            + i18n("DISH_CONTENT_PRIMARY_SECONDARY_BARRIER")
+            + i18n("DISH_CONTENT_FURTHER_CONJUNCTION").join(self.contents[1:])
+        )
 
     def generate_full_announcement(self, i18n: I18nFunction) -> str:
-        """Generate the full announcement string for the menu item.
-
-        :param i18n: The translation function
-        :return: The announcement string
-        """
+        """Generate the full announcement string for the menu item."""
         content_announcement = self.generate_content_announcement(i18n)
         return i18n(f"ANNOUNCEMENT_PREPOSITION_{self.dish_type.identifier}").format(
             contents=content_announcement, name=self.name
         )
 
     @field_validator("nutrition_flags", mode="before")
-    def parse_nutrition_flags(cls, value):
-        """Parse the nutrition flags from the expected input format to a set of NutritionFlag enums.
+    def parse_nutrition_flags(cls, value):  # noqa: N805
+        """Parse the nutrition flags from the expected input format.
 
         Sample input value: {
              "NutritionFlags": {
@@ -92,7 +97,7 @@ class MensaMenu(BaseModel):
         }
         """
         if isinstance(value, dict):
-            return {NutritionFlag(flag) for flag in value.keys()}
+            return {NutritionFlag(flag) for flag in value}
         return value
 
 
@@ -100,21 +105,17 @@ class MensaDayMenus(BaseModel):
     """A model for the dynamodb mensa menu item."""
 
     date: datetime.date = Field(alias="Date")
-    menus: List[MensaMenu] = Field(alias="Menus")
-    extras: List[MensaMenuExtra] = Field(alias="Extras")
+    menus: list[MensaMenu] = Field(alias="Menus")
+    extras: list[MensaMenuExtra] = Field(alias="Extras")
     mensa_id: str = Field(alias="MensaId")
     LanguageKey: str = Field(alias="LanguageKey")
 
-    def get_menus_by_type(self, dish_type: "DishType") -> List[MensaMenu]:
+    def get_menus_by_type(self, dish_type: DishType) -> list[MensaMenu]:
         """Get the menus by the dish type."""
         return [menu for menu in self.menus if menu.dish_type == dish_type]
 
     def generate_extras_announcement(self, i18n: I18nFunction) -> str:
-        """Generate the announcement string for the extra menu items.
-
-        :param i18n: The translation function
-        :return: The announcement string
-        """
+        """Generate the announcement string for the extra menu items."""
         if len(self.extras) == 0:
             return i18n("EXTRAS_EMPTY")
         return i18n("EXTRAS_FORMAT").format(
@@ -154,18 +155,19 @@ class DishType(Enum):
     def __init__(self, identifier: str, name_de: str, name_en: str):
         """Initialize the dish type.
 
-        :param identifier: The identifier of the dish type
-        :param name_de: The name of the dish type in German
-        :param name_en: The name of the dish type in English
+        Args:
+            identifier: The identifier of the dish type
+            name_de: The name of the dish type in German
+            name_en: The name of the dish type in English
         """
         self.identifier = identifier
         self.name_de = name_de
         self.name_en = name_en
 
     @classmethod
-    def from_name(cls, name: str) -> "DishType":
+    def from_name(cls, name: str) -> DishType:
         """Get the dish type from the name."""
         for dish_type in cls:
-            if name in [dish_type.name_de, dish_type.name_en]:
+            if name in {dish_type.name_de, dish_type.name_en}:
                 return dish_type
         return cls.UNKNOWN

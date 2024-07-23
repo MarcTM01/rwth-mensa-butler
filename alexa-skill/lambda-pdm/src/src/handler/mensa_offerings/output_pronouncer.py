@@ -1,3 +1,5 @@
+"""Handles presenting the menu data to the end user."""
+
 import datetime
 
 from ask_sdk_core.handler_input import HandlerInput
@@ -33,7 +35,7 @@ def _speak_summary_about_additional_dishes(
         for menu in mensa_offerings.menus
         if menu.dish_type not in {DishType.CLASSICS, DishType.VEGETARIAN}
     ]
-    additional_dish_names = set([menu.name for menu in additional_dishes])
+    additional_dish_names = {menu.name for menu in additional_dishes}
     if len(additional_dishes) <= 0:
         return ""
 
@@ -56,8 +58,9 @@ def speak_standard_dish_types(
     mensa_offerings: MensaDayMenus,
     i18n: I18nFunction,
 ) -> Response:
+    """Transforms standard dishes (classics, veggie) into speakable format."""
     speak_output = i18n("DISH_ANNOUNCEMENT_PREFIX").format(
-        mensa=i18n(mensa.mensaId), date=date.isoformat()
+        mensa=i18n(mensa.mensa_id), date=date.isoformat()
     )
     speak_output += " " + _speak_classical_and_vegetarian_dishes(i18n, mensa_offerings)
     speak_output += " " + mensa_offerings.generate_extras_announcement(i18n)
@@ -70,7 +73,7 @@ def speak_standard_dish_types(
     )
 
 
-def speak_filtered_dishes(
+def speak_filtered_dishes(  # noqa PLR0917
     handler_input: HandlerInput,
     mensa: Mensa,
     date: datetime.date,
@@ -78,39 +81,36 @@ def speak_filtered_dishes(
     dish_type_filter: DishTypeFilter,
     i18n: I18nFunction,
 ) -> Response:
+    """Transforms filtered dishes into speakable format."""
     filtered_dishes = [
         menu for menu in mensa_offerings.menus if dish_type_filter.matches(menu)
     ]
     if len(filtered_dishes) <= 0:
         speak_output = i18n("FILTERED_DISH_ANNOUNCEMENT_NO_DISHES").format(
             type=i18n(f"FILTER_{dish_type_filter.value}_PLURAL"),
-            mensa=i18n(mensa.mensaId),
+            mensa=i18n(mensa.mensa_id),
             date=date,
         )
         return handler_input.response_builder.speak(speak_output).response
-    elif len(filtered_dishes) == 1:
+    if len(filtered_dishes) == 1:
         speak_output = i18n("FILTERED_DISH_ANNOUNCEMENT_ONE_DISH").format(
             type=i18n(f"FILTER_{dish_type_filter.value}_SINGLE"),
-            mensa=i18n(mensa.mensaId),
+            mensa=i18n(mensa.mensa_id),
             date=date,
             dish=filtered_dishes[0].generate_full_announcement(i18n),
         )
         return handler_input.response_builder.speak(speak_output).response
-    else:
-        speak_output = i18n("FILTERED_DISH_ANNOUNCEMENT_MULTIPLE_DISHES").format(
-            type=i18n(f"FILTER_{dish_type_filter.value}_PLURAL"),
-            mensa=i18n(mensa.mensaId),
-            date=date,
-            num=len(filtered_dishes),
-            dishes=". ".join(
-                map(
-                    lambda dish: dish.generate_full_announcement(i18n),
-                    filtered_dishes,
-                )
-            ),
-        )
-        return (
-            handler_input.response_builder.speak(speak_output)
-            .set_should_end_session(True)
-            .response
-        )
+    speak_output = i18n("FILTERED_DISH_ANNOUNCEMENT_MULTIPLE_DISHES").format(
+        type=i18n(f"FILTER_{dish_type_filter.value}_PLURAL"),
+        mensa=i18n(mensa.mensa_id),
+        date=date,
+        num=len(filtered_dishes),
+        dishes=". ".join(
+            dish.generate_full_announcement(i18n) for dish in filtered_dishes
+        ),
+    )
+    return (
+        handler_input.response_builder.speak(speak_output)
+        .set_should_end_session(True)
+        .response
+    )

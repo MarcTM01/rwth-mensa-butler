@@ -1,3 +1,5 @@
+"""This module defines utility functions for localizing texts."""
+
 from typing import Callable, Iterable
 
 I18nFunction = Callable[[str], str]
@@ -8,10 +10,13 @@ def build_localized_list(
 ) -> str:
     """Build a localized list.
 
-    :param i18n: The translation function
-    :param items: The items to list
-    :param conjunction: Whether to use a conjunction or disjunction
-    :return: The localized list
+    Concatenates items with a conjunction or disjunction.
+    Pronounces if the list is empty.
+
+    Args:
+        i18n: The translation function
+        items: The items to list
+        conjunction: Whether to use a conjunction or disjunction
     """
     item_list = list(items)
     if len(item_list) == 0:

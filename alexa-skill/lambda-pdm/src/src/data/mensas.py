@@ -1,3 +1,5 @@
+"""Defines a data-class for a mensa object."""
+
 from dataclasses import dataclass
 
 
@@ -5,4 +7,4 @@ from dataclasses import dataclass
 class Mensa:
     """Data class for a Mensa object."""
 
-    mensaId: str
+    mensa_id: str

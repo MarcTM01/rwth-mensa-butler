@@ -10,7 +10,7 @@ def test_model_parsing():
     assert model_path.exists()
     assert model_path.is_file()
 
-    with open(model_path, "r") as f:
+    with model_path.open() as f:
         model = json.load(f)
 
     MensaDayMenus(**model)

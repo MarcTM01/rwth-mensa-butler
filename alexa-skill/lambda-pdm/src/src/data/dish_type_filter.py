@@ -1,3 +1,5 @@
+"""Defines various filters for dishes."""
+
 from enum import Enum
 
 from src.data.menu_model import DishType, MensaMenu, NutritionFlag
@@ -15,7 +17,7 @@ class DishTypeFilter(str, Enum):
     BURGER = "BURGER"
     TABLE_DISH = "TABLE_DISH"
 
-    def matches(self, dish: MensaMenu) -> bool:
+    def matches(self, dish: MensaMenu) -> bool:  # noqa: PLR0911
         """Check if the dish matches the filter."""
         if self == DishTypeFilter.VEGETARIAN:
             return NutritionFlag.VEGETARIAN in dish.nutrition_flags

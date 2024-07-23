@@ -39,22 +39,17 @@ test = [
 ]
 
 [tool.ruff.lint]
-select = [
-    "D",
-    "D401",
-    "E4",
-    "E7",
-    "E9",
-    "F",
-    "I"
-]
+preview = true
+select = ["F", "E", "W", "I", "N", "D", "UP", "ASYNC", "BLE", "B", "A", "COM", "C4",
+    "DTZ", "DJ", "EM", "FA", "ISC", "LOG", "G", "PIE", "T20", "PT", "Q", "RSE", "RET", "SIM",
+    "TID", "TCH", "INT", "ARG", "PTH", "PD", "PL", "TRY", "FLY", "NPY", "PERF", "FURB", "RUF"]
+ignore = ["ISC001", "COM812", "DTZ001", "PLR6301"]
 
-ignore = [
-    "D100", "D104"
-]
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**" = ["D", "PLR2004"]
 
 [tool.ruff.lint.pydocstyle]
-convention = "pep257"
+convention = "google"
 
 [tool.pdm]
 distribution = false

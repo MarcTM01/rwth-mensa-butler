@@ -1,3 +1,5 @@
+"""This module is the entrypoint for the alexa skil lambda."""
+
 import logging
 
 from ask_sdk_core.skill_builder import SkillBuilder

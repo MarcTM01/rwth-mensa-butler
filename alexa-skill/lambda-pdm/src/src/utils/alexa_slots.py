@@ -1,7 +1,13 @@
-import datetime
-from typing import Optional, Set
+"""This module defines utility functions for dealing with Alexa Slots."""
 
-from ask_sdk_core.handler_input import HandlerInput
+from __future__ import annotations
+
+import datetime
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from ask_sdk_core.handler_input import HandlerInput
+
 from ask_sdk_core.utils import request_util
 
 from src.data.dish_type_filter import DishTypeFilter
@@ -10,12 +16,15 @@ from src.data.mensas import Mensa
 
 def _get_slot_ids_from_custom_slot(
     handler_input: HandlerInput, slot_name: str
-) -> Optional[Set[str]]:
+) -> set[str] | None:
     """Get the slot IDs from the custom slot.
 
-    :param handler_input: The handler input (from the skill invocation)
-    :param slot_name: The name of the slot
-    :return: The slot IDs that were found in the slot or None if no slot ID was found
+    Args:
+        handler_input: The handler input from the skill invocation
+        slot_name: The name of the slot
+
+    Returns:
+        The slot IDs that were found in the slot or None if no slot ID was found
     """
     slot_value = request_util.get_slot_value_v2(handler_input, slot_name)
     if slot_value is None:
@@ -25,7 +34,7 @@ def _get_slot_ids_from_custom_slot(
     if simple_slot_values is None:
         return None
 
-    result_id_set: Set[str] = set()
+    result_id_set: set[str] = set()
     for simple_slot_value in simple_slot_values:
         slot_resolutions = simple_slot_value.resolutions
         if (
@@ -35,10 +44,10 @@ def _get_slot_ids_from_custom_slot(
             continue
 
         for resolution in slot_resolutions.resolutions_per_authority:
-            if resolution.values is None:
+            if resolution.values is None:  # noqa PD011
                 continue
 
-            for value in resolution.values:
+            for value in resolution.values:  # noqa PD011
                 if value.value is None or value.value.id is None:
                     continue
 
@@ -50,7 +59,17 @@ def _get_slot_ids_from_custom_slot(
 
 def get_dish_type_filters_from_slot(
     handler_input: HandlerInput, slot_name: str
-) -> Optional[Set[DishTypeFilter]]:
+) -> set[DishTypeFilter] | None:
+    """Get the dish type filter from the slot.
+
+    Args:
+        handler_input: The handler input (from the skill invocation)
+        slot_name: The name of the slot
+
+    Returns:
+        The dish type filter(s) that were found in the slot
+        or None if no filter was found
+    """
     identified_slot_ids = _get_slot_ids_from_custom_slot(handler_input, slot_name)
     if identified_slot_ids is None:
         return None
@@ -60,12 +79,15 @@ def get_dish_type_filters_from_slot(
 
 def get_mensas_from_slot(
     handler_input: HandlerInput, slot_name: str
-) -> Optional[Set[Mensa]]:
+) -> set[Mensa] | None:
     """Get the mensa from the slot.
 
-    :param handler_input: The handler input (from the skill invocation)
-    :param slot_name: The name of the slot
-    :return: The mensa(s) that were found in the slot or None if no mensa was found
+    Args:
+        handler_input: The handler input (from the skill invocation)
+        slot_name: The name of the slot
+
+    Returns:
+        The mensa(s) that were found in the slot or None if no mensa was found
     """
     identified_slot_ids = _get_slot_ids_from_custom_slot(handler_input, slot_name)
     if identified_slot_ids is None:
@@ -76,13 +98,18 @@ def get_mensas_from_slot(
 
 def get_date_from_slot(
     handler_input: HandlerInput, slot_name: str
-) -> Optional[datetime.date]:
+) -> datetime.date | None:
     """Get the date from the slot.
 
-    If multiple values were specified, this function will return the first date that was found.
-    :param handler_input: The handler input (from the skill invocation)
-    :param slot_name: The name of the slot
-    :return: The date that was found in the slot or None if no date was found
+    If multiple values were specified, this function will return
+    the first date that was found.
+
+    Args:
+        handler_input: The handler input from the skill invocation
+        slot_name: The name of the slot
+
+    Returns:
+        The date that was found in the slot or None if no date was found
     """
     date_slot_value = request_util.get_slot_value_v2(handler_input, slot_name)
     if date_slot_value is None:
@@ -100,5 +127,7 @@ def get_date_from_slot(
     if date_value is None:
         return None
 
-    parsed_date = datetime.datetime.strptime(date_value, "%Y-%m-%d")
+    parsed_date = datetime.datetime.strptime(date_value, "%Y-%m-%d").astimezone(
+        datetime.timezone.utc
+    )
     return parsed_date.date()

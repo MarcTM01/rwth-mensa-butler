@@ -1,3 +1,5 @@
+"""Defines a request interceptor that adds i18n utilities to all incoming requests."""
+
 import gettext
 
 from ask_sdk_core.dispatch_components import AbstractRequestInterceptor
@@ -11,7 +13,11 @@ class LocalizationInterceptor(AbstractRequestInterceptor):
     """Request Interceptor for setting locale based on request."""
 
     def process(self, handler_input: HandlerInput) -> None:
-        """Overwritten."""
+        """Adds i18n information to every request.
+
+        Adds an i18n mapping function to the request using gettext.
+        The i18n function is stored in the request attribute '_'
+        """
         locale = (
             handler_input.request_envelope.request.locale
             if handler_input.request_envelope.request is not None
