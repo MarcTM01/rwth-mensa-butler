@@ -1,11 +1,13 @@
 import logging
-from typing import Callable, cast
+from typing import cast
 
 from ask_sdk_core.dispatch_components import (
     AbstractExceptionHandler,
 )
 from ask_sdk_core.handler_input import HandlerInput
 from ask_sdk_model import Response
+
+from src.utils.localization import I18nFunction
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -27,11 +29,11 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
         """Overwritten."""
         logger.error(exception, exc_info=True)
 
-        _ = cast(
-            Callable[[str], str],
+        i18n = cast(
+            I18nFunction,
             handler_input.attributes_manager.request_attributes["_"],
         )
-        speak_output = _("ERROR_MESSAGE")
+        speak_output = i18n("ERROR_MESSAGE")
 
         return (
             handler_input.response_builder.speak(speak_output)

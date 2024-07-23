@@ -1,6 +1,6 @@
 import datetime
 from enum import Enum
-from typing import Union, cast
+from typing import Union
 
 import ask_sdk_core.utils as ask_utils
 from ask_sdk_core.handler_input import HandlerInput
@@ -56,16 +56,12 @@ class DishTypeFilter(str, Enum):
 
 
 def _get_dish_type_filter_from_request(
-    handler_input: HandlerInput,
+    handler_input: HandlerInput, i18n: I18nFunction
 ) -> Union[Response, DishTypeFilter]:
-    _ = cast(
-        I18nFunction,
-        handler_input.attributes_manager.request_attributes["_"],
-    )
     dish_types = alexa_slots.get_slot_ids_from_custom_slot(handler_input, "dishType")
     if dish_types is None or len(dish_types) == 0:
         return handler_input.response_builder.speak(
-            _("NO_DISH_TYPE_SPECIFIED")
+            i18n("NO_DISH_TYPE_SPECIFIED")
         ).response
 
     dish_type = next(iter(dish_types))
@@ -87,13 +83,10 @@ class GetFilteredMensaOfferingsIntentHandler(IntentHandlerWithMensaAndDate):
         mensa: Mensa,
         date: datetime.date,
         mensa_offerings: MensaDayMenus,
+        i18n: I18nFunction,
     ) -> Response:
         """Overwritten."""
-        _ = cast(
-            I18nFunction,
-            handler_input.attributes_manager.request_attributes["_"],
-        )
-        response_or_filter = _get_dish_type_filter_from_request(handler_input)
+        response_or_filter = _get_dish_type_filter_from_request(handler_input, i18n)
         if isinstance(response_or_filter, Response):
             return response_or_filter
 
@@ -101,29 +94,30 @@ class GetFilteredMensaOfferingsIntentHandler(IntentHandlerWithMensaAndDate):
             menu for menu in mensa_offerings.menus if response_or_filter.matches(menu)
         ]
         if len(filtered_dishes) <= 0:
-            speak_output = _("FILTERED_DISH_ANNOUNCEMENT_NO_DISHES").format(
-                type=_(f"FILTER_{response_or_filter.value}_PLURAL"),
-                mensa=_(mensa.mensaId),
+            speak_output = i18n("FILTERED_DISH_ANNOUNCEMENT_NO_DISHES").format(
+                type=i18n(f"FILTER_{response_or_filter.value}_PLURAL"),
+                mensa=i18n(mensa.mensaId),
                 date=date,
             )
             return handler_input.response_builder.speak(speak_output).response
         elif len(filtered_dishes) == 1:
-            speak_output = _("FILTERED_DISH_ANNOUNCEMENT_ONE_DISH").format(
-                type=_(f"FILTER_{response_or_filter.value}_SINGLE"),
-                mensa=_(mensa.mensaId),
+            speak_output = i18n("FILTERED_DISH_ANNOUNCEMENT_ONE_DISH").format(
+                type=i18n(f"FILTER_{response_or_filter.value}_SINGLE"),
+                mensa=i18n(mensa.mensaId),
                 date=date,
-                dish=filtered_dishes[0].generate_full_announcement(_),
+                dish=filtered_dishes[0].generate_full_announcement(i18n),
             )
             return handler_input.response_builder.speak(speak_output).response
         else:
-            speak_output = _("FILTERED_DISH_ANNOUNCEMENT_MULTIPLE_DISHES").format(
-                type=_(f"FILTER_{response_or_filter.value}_PLURAL"),
-                mensa=_(mensa.mensaId),
+            speak_output = i18n("FILTERED_DISH_ANNOUNCEMENT_MULTIPLE_DISHES").format(
+                type=i18n(f"FILTER_{response_or_filter.value}_PLURAL"),
+                mensa=i18n(mensa.mensaId),
                 date=date,
                 num=len(filtered_dishes),
                 dishes=". ".join(
                     map(
-                        lambda dish: dish.generate_full_announcement(_), filtered_dishes
+                        lambda dish: dish.generate_full_announcement(i18n),
+                        filtered_dishes,
                     )
                 ),
             )
