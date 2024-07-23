@@ -36,14 +36,11 @@ msgstr "You can ask me about the menu in all RWTH Aachen canteens. For example, 
 msgid "FALLBACK_MESSAGE"
 msgstr "Sorry, I can't process this request. This may be because I don't yet know your chosen query wording or I don't support the function. If you'd like, feel free to create an issue on GitHub to improve the skill."
 
-msgid "NO_MENSA_SPECIFIED"
-msgstr "I'm sorry, I didn't understand which mensa you were asking about. Please try again."
+msgid "REPROMPT_FOR_DATE"
+msgstr "For which date?"
 
-msgid "NO_DISH_TYPE_SPECIFIED"
-msgstr "I'm sorry, I didn't understand which dish you were asking about. Please try again."
-
-msgid "NO_DATE_SPECIFIED"
-msgstr "I'm sorry, I didn't understand which date you were asking about. Please try again."
+msgid "REPROMPT_FOR_MENSA"
+msgstr "For which mensa?"
 
 msgid "NO_MENU_DATA_FOR_DATE"
 msgstr "I'm sorry, I don't have any menu data for {0} at {1}. It's possible that {0} is closed that day or you are asking for data too far in the future or the past."

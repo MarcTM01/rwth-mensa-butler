@@ -36,14 +36,11 @@ msgstr "Sie können mich nach dem Speiseplan aller Mensen der RWTH Aachen fragen
 msgid "FALLBACK_MESSAGE"
 msgstr "Entschuldigung, ich kann diese Anfrage nicht verarbeiten. Dies kann daran liegen, dass ich Ihre gewählte Anfragenformulierung noch nicht kenne oder ich die Funktion nicht unterstütze. Wenn Sie möchten, können Sie gern ein <lang xml:lang='en-US'>issue</lang> auf <lang xml:lang='en-US'>GitHub</lang> erstellen, um den Skill zu verbessern."
 
-msgid "NO_MENSA_SPECIFIED"
-msgstr "Entschuldigung, ich habe nicht verstanden, nach welcher Mensa Sie gefragt haben. Bitte versuchen Sie es erneut."
+msgid "REPROMPT_FOR_DATE"
+msgstr "Für welchen Tag?"
 
-msgid "NO_DISH_TYPE_SPECIFIED"
-msgstr "Entschuldigung, ich habe nicht verstanden, nach welchem Gericht Sie gefragt haben. Bitte versuchen Sie es erneut."
-
-msgid "NO_DATE_SPECIFIED"
-msgstr "Entschuldigung, ich habe nicht verstanden, nach welchem Datum Sie gefragt haben. Bitte versuchen Sie es erneut."
+msgid "REPROMPT_FOR_MENSA"
+msgstr "Für welche Mensa?"
 
 msgid "NO_MENU_DATA_FOR_DATE"
 msgstr "Entschuldigung, ich habe keine Menüdaten für {0} am {1}. Es ist möglich, dass {0} an diesem Tag geschlossen ist oder Sie nach Daten fragen, die zu weit in der Zukunft oder Vergangenheit liegen."
