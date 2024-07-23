@@ -5,10 +5,8 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    import datetime
-
     from src.utils.localization import I18nFunction
-
+import datetime  # noqa: TCH003
 from enum import Enum
 
 from pydantic import BaseModel, Field, field_validator
