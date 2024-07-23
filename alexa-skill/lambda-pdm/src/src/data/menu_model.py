@@ -41,6 +41,18 @@ class MensaMenu(BaseModel):
         """Get the dish type of the menu item."""
         return DishType.from_name(self.name)
 
+    @property
+    def empty(self) -> bool:
+        contents_combined = "".join(self.contents).strip()
+        if len(contents_combined) <= 1:
+            return True
+        if (
+            contents_combined.lower() == "closed"
+            or contents_combined.lower() == "geschlossen"
+        ):
+            return True
+        return False
+
     def generate_content_announcement(self, i18n: I18nFunction) -> str:
         """Generate the announcement string for the menu item.
 

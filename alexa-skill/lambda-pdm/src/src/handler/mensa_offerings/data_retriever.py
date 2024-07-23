@@ -53,4 +53,6 @@ def retrieve_mensa_offerings_or_speak_not_available(
     if "Item" not in get_response:
         return _speak_probable_reason_for_no_menu_data(handler_input, mensa, date, i18n)
 
-    return MensaDayMenus.model_validate(get_response["Item"])
+    menu = MensaDayMenus.model_validate(get_response["Item"])
+    menu.menus = [x for x in menu.menus if not x.empty]
+    return menu

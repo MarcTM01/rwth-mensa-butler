@@ -43,9 +43,7 @@ class MensaOfferingsParameterBuilder:
         if self.mensa is not None:
             attrs["mensa_id"] = self.mensa.mensaId
         if self.date is not None:
-            attrs["date"] = datetime.date.strftime(
-                self.date, DATE_SERIALIZATION_FORMAT
-            )
+            attrs["date"] = datetime.date.strftime(self.date, DATE_SERIALIZATION_FORMAT)
         if self.dish_type_filter is not None:
             attrs["dish_type_filter_id"] = self.dish_type_filter.name
 
