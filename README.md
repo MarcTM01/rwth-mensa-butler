@@ -66,7 +66,7 @@ Most project components are decently documented. Feel free to check them out.
 | [Alexa Skill Package](./alexa-skill/skill-package) | MetaData required for the skill to function                                                                                                                   |
 | [Menu Scraper Lambda](./menu-scraper-lambda)       | AWS Lambda function for scraping the menu information from the websites                                                                                       |
 | [Menu Scraper Lib](./menu-scraper-lib)             | Go Library for scraping the menu information. Used by Menu Scraper Lambda                                                                                     |
-| [SAMA App](./sam-app)                              | AWS SAM (Serverless Application Model) App. Defines Infrastructure as Code for everything except the Alexa Skill (e.g., Scraper Lambda, DynamoDB tables, ...) |
+| [SAM App](./sam-app)                               | AWS SAM (Serverless Application Model) App. Defines Infrastructure as Code for everything except the Alexa Skill (e.g., Scraper Lambda, DynamoDB tables, ...) |
 
 ### Design decisions
 **Q:** Why does the skill lambda directly access the database instead of using an API Gateway?
