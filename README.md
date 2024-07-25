@@ -18,7 +18,7 @@ Then use any of the features described below on your Alexa-enabled device or pho
 
 ## :dart: Features
 - [X] Architecture diagram SVG supports automated color inversion for dark mode users
-- [X] Multi-Language Support ( :uk:, :de: )
+- [X] Multi-Language support ( :uk:, :de: )
 - [X] Get the menu for any mensa of RWTH Aachen University for specific days, including past days
 
 > User: Alexa, ask RWTH mensa what's on the menu at mensa vita next Monday
