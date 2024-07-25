@@ -3,7 +3,7 @@ module github.com/MarcTM01/rwth-mensa-butler/menu-scraper-lib
 go 1.21.9
 
 require (
-	github.com/PuerkitoBio/goquery v1.9.1
+	github.com/PuerkitoBio/goquery v1.9.2
 	github.com/spf13/viper v1.18.2
 )
 
