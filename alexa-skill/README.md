@@ -4,8 +4,6 @@ The skill is written in Python and uses the `ask-sdk` library to interact with t
 
 Alexa requires the skill files to follow a strict structure documented [here](https://developer.amazon.com/en-US/docs/alexa/conversations/acdl-understand-directory-structure.html).
 Additionally, for Python skills, dependencies must be specified using a `requirements.txt` file.
-I chose to develop this skill using the excellent [PDM](https://github.com/pdm-project/pdm) package manager,
-which significantly simplifies managing dependencies and virtual environments.
 
 As a result, several transformations need to take place before the contents of this folder can be uploaded to Alexa.
 These include:
@@ -27,7 +25,7 @@ For the external DynamoDB table that stores the menu data:
 - `DYNAMODB_ASSUME_ROLE_ARN` - The IAM role ARN that the skill can assume to access the table.
 - `DYNAMODB_ASSUME_ROLE_SESSION_NAME` - The session name to use when assuming the role.
 
-For the alexa skill itself:
+For the Alexa skill itself:
 - `SKILL_LAMBDA_ARN_EUW`, `SKILL_LAMBDA_ARN_USW`, and `SKILL_LAMBDA_ARN_NA` are the skill lambda ARNs found in the
-alexa developer console.
+Alexa developer console.
 
