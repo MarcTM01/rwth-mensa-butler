@@ -1,4 +1,4 @@
-module github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib
+module github.com/MarcTM01/rwth-mensa-butler/menu-scraper-lib
 
 go 1.21.9
 

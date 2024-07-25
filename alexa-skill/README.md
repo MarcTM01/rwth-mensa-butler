@@ -8,7 +8,7 @@ Additionally, for Python skills, dependencies must be specified using a `require
 As a result, several transformations need to take place before the contents of this folder can be uploaded to Alexa.
 These include:
 - Generating a `requirements.txt` file from the `pdm.lock` file.
-- Compiling the `gettext` locale files to `pot` files.
+- Compiling the `gettext` locale files to `.pot` files.
 - Generating a `skill.json` and `.env` file by substituting potentially sensitive values.
 - Copying the source files to the correct locations.
 
@@ -27,5 +27,4 @@ For the external DynamoDB table that stores the menu data:
 
 For the Alexa skill itself:
 - `SKILL_LAMBDA_ARN_EUW`, `SKILL_LAMBDA_ARN_USW`, and `SKILL_LAMBDA_ARN_NA` are the skill lambda ARNs found in the
-Alexa developer console.
-
+  Alexa developer console.

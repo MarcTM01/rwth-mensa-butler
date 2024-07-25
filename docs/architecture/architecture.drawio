@@ -106,7 +106,7 @@
         <mxCell id="GmffOXv_5HLjRrGuA_52-40" value="./sam-app/" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="640" y="14" width="86" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="GmffOXv_5HLjRrGuA_52-43" value="./menu-scrapper-lambda/" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="GmffOXv_5HLjRrGuA_52-43" value="./menu-scraper-lambda/" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="290" y="71.5" width="160" height="30" as="geometry" />
         </mxCell>
         <mxCell id="GmffOXv_5HLjRrGuA_52-44" value="" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.github" parent="1" vertex="1">

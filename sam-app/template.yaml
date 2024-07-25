@@ -86,7 +86,7 @@ Resources:
     Metadata:
       DockerTag: provided.al2-v1
       DockerContext: ../
-      Dockerfile: menu-scrapper-lambda/Dockerfile
+      Dockerfile: menu-scraper-lambda/Dockerfile
 
 Outputs:
   ScrapMensaDataFunction:

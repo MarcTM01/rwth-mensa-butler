@@ -4,7 +4,7 @@ name: CI pipeline
 on: ['push']
 
 jobs:
-  menu-scrapper-lib-ci:
+  menu-scraper-lib-ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,25 +14,25 @@ jobs:
           go-version: '1.21.9'
 
       - name: Install dependencies
-        working-directory: ./menu-scrapper-lib
+        working-directory: ./menu-scraper-lib
         run: go get -d ./...
 
       - name: Run tests
-        working-directory: ./menu-scrapper-lib
+        working-directory: ./menu-scraper-lib
         run: go test -v ./test
 
       - name: Check if code is formatted using go fmt
         if: '!cancelled()'
-        working-directory: ./menu-scrapper-lib
+        working-directory: ./menu-scraper-lib
         run: test -z $(gofmt -l .)
 
       - name: Lint code
         if: '!cancelled()'
         uses: golangci/golangci-lint-action@v6
         with:
-          working-directory: ./menu-scrapper-lib
+          working-directory: ./menu-scraper-lib
           version: v1.58.1
-  menu-scrapper-lambda-ci:
+  menu-scraper-lambda-ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -42,23 +42,23 @@ jobs:
           go-version: '1.21.9'
 
       - name: Install dependencies
-        working-directory: ./menu-scrapper-lambda
+        working-directory: ./menu-scraper-lambda
         run: go get -d ./...
 
       - name: Build
-        working-directory: ./menu-scrapper-lambda
+        working-directory: ./menu-scraper-lambda
         run: go build ./bin/main.go
 
       - name: Check if code is formatted using go fmt
         if: '!cancelled()'
-        working-directory: ./menu-scrapper-lambda
+        working-directory: ./menu-scraper-lambda
         run: test -z $(gofmt -l .)
 
       - name: Lint code
         if: '!cancelled()'
         uses: golangci/golangci-lint-action@v6
         with:
-          working-directory: ./menu-scrapper-lambda
+          working-directory: ./menu-scraper-lambda
           version: v1.58.1
   alexa-skill-ci:
     runs-on: ubuntu-latest

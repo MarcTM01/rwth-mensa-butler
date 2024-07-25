@@ -1,7 +1,7 @@
 package test
 
 import (
-	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/scrapper"
+	"github.com/MarcTM01/rwth-mensa-butler/menu-scraper-lib/pkg/scraper"
 	"github.com/PuerkitoBio/goquery"
 	"os"
 	"strings"
@@ -20,7 +20,7 @@ func TestScrapMensaMenuOfferings(t *testing.T) {
 		t.Error(err)
 	}
 
-	results, err := scrapper.ScrapMensaMenuOfferings(doc)
+	results, err := scraper.ScrapMensaMenuOfferings(doc)
 	if err != nil {
 		t.Error(err)
 	}

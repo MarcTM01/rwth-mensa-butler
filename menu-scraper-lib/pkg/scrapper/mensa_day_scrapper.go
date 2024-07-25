@@ -1,8 +1,8 @@
-package scrapper
+package scraper
 
 import (
 	"fmt"
-	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/model"
+	"github.com/MarcTM01/rwth-mensa-butler/menu-scraper-lib/pkg/model"
 	"github.com/PuerkitoBio/goquery"
 	"regexp"
 )

@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/model"
-	"github.com/MarcTM01/rwth-mensa-butler/menu-scrapper-lib/pkg/scrapper"
+	"github.com/MarcTM01/rwth-mensa-butler/menu-scraper-lib/pkg/model"
+	"github.com/MarcTM01/rwth-mensa-butler/menu-scraper-lib/pkg/scraper"
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
@@ -65,7 +65,7 @@ func retrieveAndStoreOfferingsForMensaUrl(mensaId string, languageKey string, ur
 		Messages: []string{},
 	}
 
-	offerings, err := scrapper.RetrieveCurrentMensaOfferings(url)
+	offerings, err := scraper.RetrieveCurrentMensaOfferings(url)
 	if err != nil {
 		response.Success = false
 		response.Messages = append(response.Messages, fmt.Sprintf("[%s-%s] Could not scrap offerings from website", mensaId, languageKey))
@@ -156,7 +156,7 @@ func main() {
 	dynaClient = dynamodb.NewFromConfig(cfg)
 
 	// Load scrapping configuration
-	scrapConfigurations, err = scrapper.GetApplicationConfiguration()
+	scrapConfigurations, err = scraper.GetApplicationConfiguration()
 	if err != nil {
 		log.Fatal(err)
 	}
