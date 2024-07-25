@@ -95,10 +95,20 @@ class MensaOfferingsParameterBuilder:
         """Builds the model. Prompts the user for missing input."""
         if self.mensa is None:
             msg = i18n("REPROMPT_FOR_MENSA")
-            return handler_input.response_builder.speak(msg).ask(msg).response
+            return (
+                handler_input.response_builder.speak(msg)
+                .ask(msg)
+                .set_should_end_session(False)
+                .response
+            )
         if self.date is None:
             msg = i18n("REPROMPT_FOR_DATE")
-            return handler_input.response_builder.speak(msg).ask(msg).response
+            return (
+                handler_input.response_builder.speak(msg)
+                .ask(msg)
+                .set_should_end_session(False)
+                .response
+            )
         return MensaOfferingsParameters(
             mensa=self.mensa, date=self.date, dish_type_filter=self.dish_type_filter
         )

@@ -26,5 +26,6 @@ class LaunchRequestHandler(I18nRequestHandler):
         return (
             handler_input.response_builder.speak(speak_output)
             .ask(speak_output)
+            .set_should_end_session(False)
             .response
         )

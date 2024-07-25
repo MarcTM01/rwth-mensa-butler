@@ -1,14 +1,12 @@
 """Defines a CancelIntent and StopIntent handler."""
 
 import ask_sdk_core.utils as ask_utils
+from ask_sdk_core.dispatch_components import AbstractRequestHandler
 from ask_sdk_core.handler_input import HandlerInput
 from ask_sdk_model import Response
 
-from src.handler.abstract.i18n_request_handler import I18nRequestHandler
-from src.utils.localization import I18nFunction
 
-
-class CancelOrStopIntentHandler(I18nRequestHandler):
+class CancelOrStopIntentHandler(AbstractRequestHandler):
     """Single handler for Cancel and Stop Intent."""
 
     def can_handle(self, handler_input: HandlerInput) -> bool:
@@ -17,8 +15,6 @@ class CancelOrStopIntentHandler(I18nRequestHandler):
             handler_input
         ) or ask_utils.is_intent_name("AMAZON.StopIntent")(handler_input)
 
-    def handle_i18n(self, handler_input: HandlerInput, i18n: I18nFunction) -> Response:
-        """Responds with a 'Goodbye!' message."""
-        speak_output = i18n("CANCEL_MESSAGE")
-
-        return handler_input.response_builder.speak(speak_output).response
+    def handle(self, handler_input: HandlerInput) -> Response:
+        """Ends the session."""
+        return handler_input.response_builder.set_should_end_session(True).response

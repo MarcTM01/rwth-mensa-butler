@@ -26,8 +26,4 @@ class FallbackIntentHandler(I18nRequestHandler):
         """
         speak_output = i18n("FALLBACK_MESSAGE")
 
-        return (
-            handler_input.response_builder.speak(speak_output)
-            .ask(speak_output)
-            .response
-        )
+        return handler_input.response_builder.speak(speak_output).response

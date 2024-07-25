@@ -17,15 +17,15 @@
             "Speisepläne"
           ],
           "name": "RWTH Mensa (UNOFFICIAL)",
-          "description": "Dieser Skill erlaubt es Dir, die Speisepläne der Mensen der RWTH Aachen bequem vom Sofa zu erfragen. Es werden alle Mensen der RWTH unterstützt.\n\nEs ist gut möglich, dass der Skill falsche, unvollständige, oder nicht mehr aktuelle Informationen zurückgibt. Der Entwickler übernimmt dafür keine Haftung.\n\nDieses Angebot steht in keiner Weise mit dem Mensabetreiber, dem Studierendenwerk Aachen, in Verbindung.\nDas Studierendenwerk übernimmt keine Verantwortung für den Inhalt dieser Anwendung und nimmt keinerlei Anfragen diesbezüglich entgegen.\n\nDer Quelltext dieses Skills ist auf GitHub verfügbar: https://github.com/MarcTM01/rwth-mensa-butler",
+          "description": "Dieser Skill erlaubt es Dir, die Speisepläne der Mensen der RWTH Aachen bequem vom Sofa zu erfragen. Es werden alle Mensen der RWTH unterstützt.\n\nEs ist gut möglich, dass der Skill falsche, unvollständige, oder nicht mehr aktuelle Informationen zurückgibt. Der Entwickler übernimmt dafür keine Haftung. Beachtet immer den Aushang in den Mensen. Verlassen Sie sich nicht ausschließlich auf Informationen aus diesem Skill.\n\nDieses Angebot steht in keiner Weise mit dem Mensabetreiber, dem Studierendenwerk Aachen, in Verbindung.\nDas Studierendenwerk übernimmt keine Verantwortung für den Inhalt dieser Anwendung und nimmt keinerlei Anfragen diesbezüglich entgegen.",
           "smallIconUri": "file://assets/images/de-DE_smallIconUri.png",
           "largeIconUri": "file://assets/images/de-DE_largeIconUri.png"
         },
         "en-US": {
           "summary": "Want to know what\u0027s on todays menu at any of the canteens of RWTH Aachen University? Find out using this skill!",
           "examplePhrases": [
-            "Alexa, ask r. w. t. h. mensa what\u0027s on the menu today at mensa academica.",
-            "Alexa, ask r. w. t. h. mensa about the vegetarian dishes available at mensa vita on next thursday",
+            "Alexa, ask r. w. t. h. mensa about the dishes available at mensa academica today",
+            "Alexa, ask r. w. t. h. mensa for the veggie offerings at mensa vita tomorrow",
             "Alexa, open r. w. t. h. mensa"
           ],
           "keywords": [
@@ -35,7 +35,7 @@
             "menu"
           ],
           "name": "RWTH Mensa (UNOFFICIAL)",
-          "description": "This skill allows you to inquire about the menus of the RWTH Aachen canteens from the comfort of your sofa. All RWTH canteens are supported.\n\nIt is possible that the skill returns incorrect, incomplete, or outdated information. The developer assumes no liability for this.\n\nThis offer is in no way connected to the cafeteria operator, the Studierendenwerk Aachen.\nThe Studierendenwerk Aachen assumes no responsibility for the content of this application and will not accept any inquiries regarding it.\n\nThe source code for this skill is available on GitHub: https://github.com/MarcTM01/rwth-mensa-butler",
+          "description": "This skill allows you to inquire about the menus of the RWTH Aachen canteens from the comfort of your sofa. All RWTH canteens are supported.\n\nIt is possible that the skill returns incorrect, incomplete, or outdated information. The developer assumes no liability for this. Always pay attention to the menu posted in the cafeterias. Do not solely rely on information from this Skill. \n\nThis offer is in no way connected to the cafeteria operator, the Studierendenwerk Aachen.\nThe Studierendenwerk Aachen assumes no responsibility for the content of this application and will not accept any inquiries regarding it.",
           "smallIconUri": "file://assets/images/en-US_smallIconUri.png",
           "largeIconUri": "file://assets/images/en-US_largeIconUri.png"
         }
