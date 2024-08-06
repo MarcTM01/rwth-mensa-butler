@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/golang:1.21.9 as build-image
+FROM public.ecr.aws/docker/library/golang:1.22.6 as build-image
 WORKDIR /src/menu-scraper-lambda
 
 ADD menu-scraper-lib /src/menu-scraper-lib
