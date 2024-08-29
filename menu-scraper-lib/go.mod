@@ -4,7 +4,7 @@ go 1.21.9
 
 require (
 	github.com/PuerkitoBio/goquery v1.9.1
-	github.com/spf13/viper v1.18.2
+	github.com/spf13/viper v1.19.0
 )
 
 require (
