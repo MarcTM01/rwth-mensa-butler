@@ -6,7 +6,7 @@ authors = [
     {name = "MarcTM01", email = "108792843+MarcTM01@users.noreply.github.com"},
 ]
 dependencies = [
-    "boto3==1.28.78",
+    "boto3==1.35.47",
     "ask-sdk-core==1.19.0",
     "pydantic>=2.7.1",
     "pydantic-settings>=2.2.1",
