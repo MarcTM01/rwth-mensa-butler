@@ -28,7 +28,7 @@ jobs:
 
       - name: Lint code
         if: '!cancelled()'
-        uses: golangci/golangci-lint-action@v6
+        uses: golangci/golangci-lint-action@v8
         with:
           working-directory: ./menu-scraper-lib
           version: v1.58.1
@@ -56,7 +56,7 @@ jobs:
 
       - name: Lint code
         if: '!cancelled()'
-        uses: golangci/golangci-lint-action@v6
+        uses: golangci/golangci-lint-action@v8
         with:
           working-directory: ./menu-scraper-lambda
           version: v1.58.1
