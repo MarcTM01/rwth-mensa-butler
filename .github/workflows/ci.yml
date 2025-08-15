@@ -7,7 +7,7 @@ jobs:
   menu-scraper-lib-ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
@@ -35,7 +35,7 @@ jobs:
   menu-scraper-lambda-ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
@@ -63,7 +63,7 @@ jobs:
   alexa-skill-ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -97,7 +97,7 @@ jobs:
   sam-app-ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Setup SAM
         uses: aws-actions/setup-sam@v2
         with:
@@ -123,7 +123,7 @@ jobs:
   verify-architecture-diagram:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Recompute architecture diagram
         working-directory: ./docs/architecture
         run: ./buildSvg.sh
